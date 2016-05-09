@@ -1,3 +1,9 @@
+.DS_Store
+gorgias-api-reference/node_modules
+gorgias-api-reference/npm-debug.log
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
