@@ -37,7 +37,7 @@ export default class Layout extends React.Component {
 
             <div className="navigation" >
 
-                <h1>Gorgias  <span style={{ color: '#0099e5'}}> API </span></h1>
+                <h1>Gorgias  <span style={{ color: '#0d87dd'}}> API </span></h1>
 
                 <p> INTRODUCTION </p>
                 <ul> {introductionLink}</ul>

@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const APP_DIR = path.resolve(__dirname, 'src');
-const BUILD_DIR = path.resolve(__dirname, 'static');
+const BUILD_DIR = path.resolve(__dirname, 'static/bundle');
 const __PRODUCTION__ = process.env.NODE_ENV === 'production';
 
 const entry = [
@@ -14,7 +14,7 @@ const entry = [
 const outputDev = {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/static/bundle/'
   };
 const outputBuild = {
     path: BUILD_DIR,
@@ -30,6 +30,14 @@ const loaders = [
       test: /\.js$/,
       loaders: ['react-hot', 'babel'],
       include: APP_DIR,
+    },
+    {
+      test: /\.less$/,
+      loader: "style!css!less"
+    },
+    {
+      test: /\.(otf|eot|woff|woff2|ttf|svg|png|jpg)$/,
+      loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'
     }
 ];
 
