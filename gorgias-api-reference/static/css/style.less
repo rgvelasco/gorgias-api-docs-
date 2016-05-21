@@ -1,0 +1,257 @@
+
+/* Color Variables */
+@grey_text: #444444;
+@blue_gorgias: #0d87dd;
+@light_grey_gorgias: #f7f7f7;
+@grey_gorgias: #dbdada;
+@dark_grey_code: #2d3134;
+@medium_grey_code: #282b2c;
+@medium_grey:  #888;
+@light_grey: #939da3;
+@light_blue: #fafcfc;
+@dark_blue: #0A202D;
+
+/* Font Variables */
+@font-face {
+  font-family: "Museo 300";
+  src: url('../fonts/MuseoSansRounded-300.otf') format("opentype");
+}
+@museo_300: "Museo 300",Arial,'Helvetica Neue',Helvetica,sans-serif;
+@source_sans_pro: 'Source Sans Pro',Arial,'Helvetica Neue',Helvetica,sans-serif;
+@consolas: 'Consolas', "Liberation Mono", Menlo, Courier, monospace;
+
+
+/* Global */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 15px;
+  line-height: 1.6;
+  font-family: @source_sans_pro;
+  color: @grey_text;
+  background: @light_grey_gorgias;
+  margin: 0;
+}
+
+h1, h2, h3{
+  font-family: @museo_300;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+h3 {
+  font-size: 15px;
+  margin-top: 30px;
+}
+
+a {
+  color: @medium_grey;
+  text-decoration: none;
+  &:active {
+    color: @grey_text;
+  }
+}
+
+
+/* Navigation */
+
+.navigationWrapper {
+  width: 15%;
+  position: fixed;
+  height: 100%;
+  float: left;
+  background: @light_blue;
+}
+
+.navigation {
+  padding-left: 20px;
+  overflow-y: scroll;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  a {
+    color: @dark_blue;
+    a:visited {
+      color: @dark_blue;
+    }
+    &:hover {
+      color: @blue_gorgias;
+    }
+    &:active {
+      color: @grey_text;
+    }
+  } 
+  p {
+    color: @light_grey;
+    margin: 25px 0px 0px;
+  }
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0;
+  }
+  li {
+    padding: 3px 0;
+    .activeLink {
+      color: @blue_gorgias;
+    }
+  }
+}
+
+/* Main */
+
+.mainWrapper{
+  left: 15%;
+  width: 100%;
+  position: fixed;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.main {
+  position: relative;
+  width: 85%;
+  left: 0%;
+}
+  /* two fixed columns at z = -1 : white on the left and grey on the right) */
+.main-background{
+  position:absolute;
+  z-index: -1;
+  height: 100%;
+  width:85%;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  box-orient: horizontal;
+}
+
+
+.left-background {
+  z-index: -1;
+  background: white;
+  width: 45%;
+  -ms-flex: 0 45%;
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  -ms-box-flex: 0;
+  box-flex: 0;
+}
+
+.right-background {
+  z-index: -1;
+  background: @dark_grey_code;
+  -ms-flex: 1;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  box-flex: 1;
+}
+
+
+/* Grid */
+.Grid {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  &-right {
+    display: flex;
+    width: 55%;
+    background-color: @dark_grey_code;
+  }
+  &-left {
+    display: flex;
+    width: 45%;
+    background-color: white;
+  }
+  &-inside {
+    padding: 40px;
+    width: 100%;
+  }
+  &-top {
+    align-items: flex-start;
+  }
+}
+
+
+/* Columns */
+
+.columnCenter {
+  float: left;
+  &, .columnCenter:before {
+    width: 45%;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    left: 0%;
+    background-color: white;
+  }
+}
+
+.columnRight {
+  float: left;
+  background-color: @dark_grey_code;
+  &, .columnRight:before {
+    width: 55%;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    left: 45%;
+    background-color: @dark_grey_code;
+  }
+}
+
+.text-right {
+  color: @light_grey_gorgias;
+}
+
+.code {
+  font-size: 13px;
+  font-family: @consolas;
+  border-radius: 5px;
+  background: @medium_grey_code;
+  padding: 20px;
+}
+
+.request {
+  background: @light_grey_gorgias;
+  color: @grey_text;
+  padding: 15px;
+}
+
+.tableCard {
+  background: @light_blue;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+

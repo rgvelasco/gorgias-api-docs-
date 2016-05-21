@@ -1,110 +1,75 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
-import Card  from './Card';
-import Column from './Column';
-import { tagNames } from '../reformat_json';
+import { tagNames, otherDefinitions } from '../objects';
 
-
-/* create the Base Component (responsible for the global layout) */
-var Layout = React.createClass({
-
-
-  propTypes: {
-    // route: PropTypes.any.isRequired,
-    // children: PropTypes.any.isRequired,
-    // location: PropTypes.object,
-  },
-
-  childContextTypes: {
-    viewport: PropTypes.any,
-  },
-
-
-  getInitialState() {
-    return {
-      viewport: this._getRetrieveViewport(), 
-      menu: "Getting Started"
-    };
-  },
-
-  getChildContext() {
-    return {
-      viewport: this._getRetrieveViewport(),
-    };
-  },
-
-  componentWillMount() {
-    window.addEventListener('resize', this._triggerResizeMixinCallback);
-  },
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this._triggerResizeMixinCallback);
-  },
-  
-  _getRetrieveViewport() {
-    return {
-      width: document.documentElement.clientWidth,
-      height: document.documentElement.clientHeight,
-    };
-  },
-
-  _triggerResizeMixinCallback() {
-    this.setState({
-      viewport: this._getRetrieveViewport(),
-    });
-  },
-
+/*  Layout Component  */
+export default class Layout extends React.Component {
 
   render() {
+     
+    const introductionLink =  <li key={0}> <Link key={0} activeClassName="activeLink"  to="/introduction" >Getting Started</Link> </li>
 
-    /* create an array containing each Tag Name and their path */
-    var objectLinks = [];
-    for(var i in tagNames ) {
-      var tag = tagNames[i] ;
-      var path = tag.toLowerCase();
-      path = "/".concat(path);
-      var objectLink = <li><Link style={{ display: 'block', padding: '3px 0' }} to={path} >{tag}</Link></li>
-      objectLinks.push( objectLink );
+    /*  array 'objectLinks' containing each Tag Name and their path for the rest of the menu  */
+    const tagLinks = [];
+    for(const i in tagNames ) {
+      const tag = tagNames[i] ;
+      const path = "/".concat(tag.toLowerCase());
+      const index = parseInt(i)+1;
+      const tagLink = <li  key={index} ><Link activeClassName="activeLink" key={index}  to={path}  >{tag}</Link></li>
+      tagLinks.push( tagLink );
     }
 
-    console.log("menu :");
-    console.log(this.state.menu);
+    /*  array 'definitionLinks' containing each Object Definition (which is not already defined as a Tag in the API CALLS menu)  */
+    const definitionLinks = [];
+    for(const i in otherDefinitions ) {
+      const definition = otherDefinitions[i] ;
+      const path = "/".concat(definition.toLowerCase());
+      const index = tagNames.length+ parseInt(i)+1;
+      const definitionLink = <li  key={index} ><Link activeClassName="activeLink" key={index} to={path} >{definition}</Link></li>
+      definitionLinks.push( definitionLink );
+    }
 
     return (
-      <Column >
+      <div >
 
-       {/* Left Column */}
-        <Column className="navigation columnLeft">
+        {/*   Navigation SideColumn   */}
+        <div className="navigationWrapper">
 
-            <h1 style={{fontSize: '20px' }}> 
-            Gorgias <span style={{ color: '#0099e5', fontSize: '20px' }}> API </span> 
-            </h1>
+            <div className="navigation" >
 
-            <span style={{ color: '#939da3' }}> INTRODUCTION </span>
-            <ul style={{ listStyleType: 'none', paddingLeft: 0, marginTop: 0 }}>
-              <li>
-                <Link style={{ display: 'block', padding: '3px 0' }} to="/">Getting Started</Link>
-              </li>
-            </ul>
+                <h1>Gorgias  <span style={{ color: '#0d87dd'}}> API </span></h1>
 
-            <span style={{ color: '#939da3' }}> OBJECTS </span>
-            <ul style={{ listStyleType: 'none', paddingLeft: 0, marginTop: 0  }}>
-              {objectLinks}
-            </ul>
+                <p> INTRODUCTION </p>
+                <ul> {introductionLink}</ul>
 
+                <p > API CALLS </p>
+                <ul> {tagLinks} </ul>  
 
+                <p > DEFINITIONS </p>
+                <ul> {definitionLinks} </ul>  
 
-        </Column>
+            </div> 
 
-      {/* rest of the Page, Center and Right Column -> will render the Tag Component */}
-        <div className="tag" >
-          { this.props.children }
         </div>
 
-    </Column>  
+        {/*   MAIN (everything except the Navigation SideColumn)   */}
+        <div className="mainWrapper">
+
+            {/*   MAIN BACKGROUND : two columns : white and grey in background   */}
+            <div className="main-background">
+                <div className="left-background">
+                </div>
+                <div className="right-background">
+                </div>
+            </div>
+
+            {/*  CONTENT (Tag or Definition)  */}
+            { this.props.children }
+
+        </div>
+
+    </div>  
     );
 
   }
-});
-
-export default Layout;
+}

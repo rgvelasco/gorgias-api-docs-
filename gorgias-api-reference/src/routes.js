@@ -1,12 +1,15 @@
 import React from 'react';
 import { IndexRoute, Route } from 'react-router';
-import Layout from './components/Layout';
-import GettingStarted from './components/GettingStarted';
+import Layout  from './components/Layout';
+import Introduction from './components/Introduction';
 import Tag from './components/Tag';
-import { tagNames } from './reformat_json';
+import Definition from './components/Definition';
+import { tagNames, otherDefinitions } from './objects';
 
-/* create a wrapper for the Tag Component in order to pass the tagName */
-class TagComponent extends React.Component { 
+/*  TAGS  */
+
+/*  wrapper for the Tag Component in order to pass the tagName  */
+class TagWrapper extends React.Component { 
   render() {
     return (
       <Tag tagName= {this.props.route.tag} />
@@ -14,27 +17,44 @@ class TagComponent extends React.Component {
   }
 }
 
-/* create an array containing a Route component for each tagName */
-var tagRoutes = [];
-for(var i in tagNames ) {
-	var tag = tagNames[i] ;
-	var path = tag.toLowerCase();
-	path = "/".concat(path);
-	var tagRoute = <Route path={path} tag={tag} component={TagComponent} />
+/*  array containing a Route component for each tag  */
+const tagRoutes = [];
+for(const i in tagNames ) {
+	const tag = tagNames[i] ;
+	const path = "/".concat(tag.toLowerCase());
+	const key = parseInt(i)+1;
+	const tagRoute = <Route key={key} path={path} tag={tag} component={TagWrapper}  />
 	tagRoutes.push( tagRoute );
 }
 
+/*  DEFINITIONS  */
+
+/*  wrapper for the Definition Component in order to pass the definitionName  */
+class DefinitionWrapper extends React.Component { 
+  render() {
+    return (
+      <Definition definitionName= {this.props.route.definition}  />
+    );
+  }
+}
+/*  array containing a Route component for each definition  */
+const definitionRoutes = [];
+for(const i in otherDefinitions ) {
+	const definition = otherDefinitions[i] ;
+	const path = "/".concat(definition.toLowerCase());
+	const key = tagNames.length+ parseInt(i)+1;
+	const definitionRoute = <Route key={key} path={path} definition={definition} component={DefinitionWrapper} />
+	definitionRoutes.push( definitionRoute );
+}
 
 
-/* create all the Routes for each tag (i.e each Object) */
-const routes = (
-  <Route path="/" component={Layout}>
-	  <IndexRoute component={GettingStarted} /> 
+/*  Routes for each object (tag and definition)  */
+export const routes = (
+  <Route path="/" component={Layout} >
+  	  <IndexRoute component={Introduction} /> 
+	  <Route  path="/introduction" key={0} component={Introduction} /> 
 	  {tagRoutes}
+	  {definitionRoutes}
   </Route>
 );
-
-module.exports = routes;
-
-
 
