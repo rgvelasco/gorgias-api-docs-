@@ -1,0 +1,73 @@
+{
+  "rules": {
+    "indent": [
+      "error",
+      4,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "semi": [
+      "off"
+    ],
+    "no-console": [
+      "off"
+    ],
+    "comma-dangle": [
+      "off"
+    ],
+    "new-cap": [
+      "off"
+    ],
+    "react/jsx-indent-props": [
+      "off"
+    ],
+    "react/jsx-indent": [
+      "error",
+      4
+    ],
+    "react/jsx-first-prop-new-line": [
+      "off"
+    ],
+    "react/jsx-space-before-closing": [
+      "off"
+    ],
+    "react/prefer-stateless-function": [
+      "warn"
+    ],
+    "react/sort-comp": [
+      "warn"
+    ],
+    "max-len": [
+      "warn",
+      120
+    ],
+    "object-curly-spacing": [
+      "off"
+    ]
+  },
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "globals": {
+    "$": false
+  },
+  "ecmaFeatures": {
+    "jsx": true,
+    "experimentalObjectRestSpread": true,
+    "modules": true
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ]
+}
