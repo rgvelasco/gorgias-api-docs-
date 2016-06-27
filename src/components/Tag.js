@@ -6,7 +6,6 @@ import {Path} from './Path'
 
 const openapi = fromJS(data)
 
-
 // A Tag groups a list of Paths
 export const Tag = ({params}) => {
     const tags = openapi.get('tags')

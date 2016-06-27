@@ -22,10 +22,21 @@ const Verb = ({verb, method, uri}) => (
 
                 <h3 className="text-right">Example Response (status: {status}) </h3>
                 <code className="code"></code>
+                <Responses responses={verb.get('responses')}  />
             </div>
         </div>
     </div>
 )
+
+export const Responses = ({responses}) => {
+    
+    return (<div></div>)
+}
+
+export const Response = ({responseRef}) => {
+    console.log(responses)
+    return (<div></div>)
+}
 
 export const Parameters = ({parameters}) => {
     if (!parameters) {
@@ -33,8 +44,8 @@ export const Parameters = ({parameters}) => {
     }
 
     return (
-        <table className="tableCard">
-            <caption>Parameters</caption>
+        <table className="ui very basic collapsing celled table">
+            
             <thead>
             <tr>
                 <th>Name</th>
@@ -61,8 +72,8 @@ export const Parameter = ({paramRef}) => {
     return (
         <tr>
             <td>{param.get('name')}</td>
-            <td>{param.get('description')}</td>
             <td>{param.get('type')}</td>
+            <td>{param.get('description')}</td>
         </tr >
     )
 }
@@ -72,7 +83,7 @@ export const Path = ({uri, verbs}) => {
     const anchor = parts.slice(1, parts.length - 1).join('-')
     return (
         <div className="paths" id={anchor}>
-            <h2><a href={`#${anchor}`}>{uri}</a></h2>
+            
             {verbs.map((verb, method) => (
                 <Verb key={method} verb={verb} method={method} uri={uri}/>
             )).toList()}
