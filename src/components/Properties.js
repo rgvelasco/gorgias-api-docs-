@@ -16,7 +16,6 @@ export const Properties = ({name, definition}) => {
         return null
     }
 
-    console.log(definition)
     return (
         <div className="attributes">
             <h2>{name} object properties:</h2>
