@@ -5,7 +5,7 @@ const Property = ({prop, name, required}) => {
         <tr>
             <td>{name}</td>
             <td>{prop.get('type')}</td>
-            <td>{required.includes(name) ? 'required' : ''}</td>
+            <td>{required && required.includes(name) ? 'required' : ''}</td>
             <td>{prop.get('description')}</td>
         </tr>
     )

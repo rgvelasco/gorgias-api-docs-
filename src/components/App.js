@@ -34,7 +34,7 @@ export const App = ({children}) => (
                     {openapi.get('definitions').map((def, name) => (
                         <li key={name}>
                             <Link activeClassName="activeLink"
-                                  to={`/defintions/${name}`}>{name}</Link>
+                                  to={`/definitions/${name}`}>{name}</Link>
                         </li>
                     )).toList().toJS()}
                 </ul>
