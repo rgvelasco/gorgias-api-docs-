@@ -22,12 +22,10 @@
 
 /* Global */
 
-html {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
 }
 
 body {
@@ -66,22 +64,31 @@ a {
   }
 }
 
-/* Navigation */
+/* layout
+ */
 
-.navigationWrapper {
-  width: 15%;
-  position: fixed;
+html,
+body,
+#root,
+#root > div {
   height: 100%;
-  float: left;
-  background: @light_blue;
 }
 
+#root {
+  overflow: hidden;
+}
+
+
+/* Navigation */
+
 .navigation {
-  padding-left: 20px;
-  overflow-y: auto;
-  position: absolute;
+  float: left;
+  width: 15%;
   height: 100%;
-  width: 100%;
+  overflow: auto;
+  background: @light_blue;
+  padding-left: 20px;
+
   a {
     color: @dark_blue;
     a:visited {
@@ -112,58 +119,15 @@ a {
 }
 
 /* Main */
-
-.mainWrapper {
-  left: 15%;
-  width: 100%;
-  position: fixed;
-  overflow-y: auto;
-  height: 100%;
-}
-
 .main {
-  position: relative;
+  float: left;
   width: 85%;
-  left: 0%;
-}
-
-/* two fixed columns at z = -1 : white on the left and grey on the right) */
-.main-background {
-  position: absolute;
-  z-index: -1;
   height: 100%;
-  width: 85%;
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-box;
-  display: box;
-  -ms-flex-direction: row;
-  -webkit-box-orient: horizontal;
-  -moz-box-orient: horizontal;
-  -ms-box-orient: horizontal;
-  box-orient: horizontal;
+  overflow: auto;
 }
 
-.left-background {
-  z-index: -1;
-  background: white;
-  width: 45%;
-  -ms-flex: 0 45%;
-  -webkit-box-flex: 0;
-  -moz-box-flex: 0;
-  -ms-box-flex: 0;
-  box-flex: 0;
-}
-
-.right-background {
-  z-index: -1;
-  background: @dark_grey_code;
-  -ms-flex: 1;
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -ms-box-flex: 1;
-  box-flex: 1;
+.main > .Grid {
+  min-height: 100%;
 }
 
 /* Grid */
