@@ -5,7 +5,7 @@ const Property = ({prop, name, required}) => {
         <tr>
             <td>{name}</td>
             <td>{prop.get('type')}</td>
-            <td>{required.includes(name) ? 'required' : ''}</td>
+            <td>{required && required.includes(name) ? 'required' : ''}</td>
             <td>{prop.get('description')}</td>
         </tr>
     )
@@ -21,19 +21,19 @@ export const Properties = ({name, definition}) => {
             <h2>{name} object properties:</h2>
             <div className="tableCard">
                 {/*  Table for the Attributes of the object  */}
-                <table className="table" id="table" style={{ width: '100%', textAlign:'left' }}>
+                <table className="ui celled striped table" id="table">
                     <thead>
                     <tr>
-                        <th column="name" style={{ width: '25%' }}>
+                        <th column="name">
                             <strong>Name</strong>
                         </th>
-                        <th column="type" style={{ width: '25%' }}>
+                        <th column="type">
                             <em>Type</em>
                         </th>
-                        <th column="required" style={{ width: '15%' }}>
+                        <th column="required">
                             <em>Required</em>
                         </th>
-                        <th column="description" style={{ width: '35%' }}>
+                        <th column="description">
                             <em>Description</em>
                         </th>
                     </tr>
