@@ -8,7 +8,9 @@ const openapi = fromJS(data)
 // Definition
 export const Definition = ({params}) => {
     const definitions = openapi.get('definitions')
-    const definition = definitions.find((def, name) => name === params.definition)
+    const definition = definitions.find((def, name) => {
+        return name === params.definition
+    })
 
     return (
         <div className="main">
