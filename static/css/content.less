@@ -2,12 +2,18 @@
  */
 
 .content {
-  float: left;
-  width: 84%;
-  height: 100%;
-  padding: 2.4em;
+  padding: 1em;
   overflow: auto;
-  background: linear-gradient(to right, #fff 0%, #fff 45%, #4e5764 45%, #4e5764 100%);
+}
+
+@media all and (min-width: 50em) {
+  .content {
+    float: left;
+    width: 84%;
+    height: 100%;
+    padding: 2.4em;
+    background: linear-gradient(to right, #fff 0%, #fff 45%, #4e5764 45%, #4e5764 100%);
+  }
 }
 
 .content-block {
@@ -19,29 +25,42 @@
 
 .content-block-details,
 .content-block-request {
-  display: table-cell;
-
   vertical-align: top;
 }
 
-.content-block-details {
-  width: 45%;
-  padding-right: 2em;
-}
+@media all and (min-width: 50em) {
+  .content-block-details,
+  .content-block-request {
+    display: table-cell;
+  }
 
-/* prevent the details columns from taking up the full width,
- * when we don't have the request block.
- */
-.content-block-details:first-child:nth-last-child(1) {
-  display: block;
+  .content-block-details {
+    width: 45%;
+    padding-right: 2em;
+  }
+
+  /* prevent the details columns from taking up the full width,
+  * when we don't have the request block.
+  */
+  .content-block-details:first-child:nth-last-child(1) {
+    display: block;
+  }
 }
 
 /* request column
  */
 
 .content-block-request {
-  padding-left: 2em;
-  padding-top: 2.8em;
+  padding: 1em;
+  margin: 0 -1em;
+
+  background: #4e5764;
+}
+
+@media all and (min-width: 50em) {
+  .content-block-request {
+    padding: 2.8em 0 0 2em;
+  }
 }
 
 .content-block-request-title {

@@ -2,13 +2,19 @@
  */
 
 .navigation {
-  float: left;
-  width: 16%;
-  height: 100%;
   padding: 1em;
   overflow: auto;
   background: #004fac;
 }
+
+@media all and (min-width: 50em) {
+  .navigation {
+    float: left;
+    width: 16%;
+    height: 100%;
+  }
+}
+
 
 .logo {
   max-width: 100%;
