@@ -12,13 +12,16 @@
 
 .content-block {
   display: table;
-  width: 100%;
   table-layout: fixed;
+  width: 100%;
+  margin-bottom: 4em;
 }
 
 .content-block-details,
 .content-block-request {
   display: table-cell;
+
+  vertical-align: top;
 }
 
 .content-block-details {
@@ -33,16 +36,30 @@
   display: block;
 }
 
+/* request column
+ */
+
 .content-block-request {
   padding-left: 2em;
+  padding-top: 2.8em;
 }
 
-.code {
+.content-block-request-title {
+  margin: 2em 0 0;
+
+  color: #fff;
+  font-size: .8em;
+  line-height: 2;
+}
+
+.content-block-request-code {
+  display: block;
+  padding: 1em 2em;
+  border-radius: 3px;
+  background: rgba(0,0,0,.2);
+
   font-size: 13px;
   font-family: 'Consolas', 'Liberation Mono', Menlo, Courier, monospace;
-  border-radius: 5px;
-  background: #282b2c;
-  padding: 20px;
   color: #FFF;
 }
 

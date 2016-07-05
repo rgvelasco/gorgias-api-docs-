@@ -20,7 +20,7 @@ export const Index = () => (
                     the banking networks and incur no cost.</p>
             </div>
             <div className="content-block-request">
-                <h3 className="text-right">API Endpoint</h3>
+                <h3 className="content-block-request-title">API Endpoint</h3>
             </div>
 
         </div>

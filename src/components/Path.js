@@ -33,7 +33,7 @@ const Verb = ({verb, method, uri}) => {
                 {responses.map((response, status) => {
                     return (
                         <div key={status}>
-                            <h3 className="content-block-request-title" >Example Response (status: {status}) </h3>
+                            <h3 className="content-block-request-title">Example Response (status: {status}) </h3>
 
                                 <Response response={response} />
 
