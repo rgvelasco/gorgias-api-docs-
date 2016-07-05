@@ -1,80 +1,53 @@
 /* content
  */
 
-.main > .Grid {
-  min-height: 100%;
-}
-
-/* Grid */
-.Grid {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  &-right {
-    display: flex;
-    width: 55%;
-    background-color: #2d3134;
-  }
-  &-left {
-    display: flex;
-    width: 45%;
-    background-color: white;
-  }
-  &-inside {
-    padding: 40px;
-    width: 100%;
-  }
-  &-top {
-    align-items: flex-start;
-  }
-}
-
-/* Columns */
-
-.columnCenter {
+.content {
   float: left;
-  &, .columnCenter:before {
-    width: 45%;
-  }
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-    left: 0%;
-    background-color: white;
-  }
+  width: 84%;
+  height: 100%;
+  padding: 2.4em;
+  overflow: auto;
+  background: linear-gradient(to right, #fff 0%, #fff 45%, #4e5764 45%, #4e5764 100%);
 }
 
-.columnRight {
-  float: left;
-  background-color: #2d3134;
-  &, .columnRight:before {
-    width: 55%;
-  }
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-    left: 45%;
-    background-color: #2d3134;
-  }
+.content-block {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.content-block-details,
+.content-block-request {
+  display: table-cell;
+}
+
+.content-block-details {
+  width: 45%;
+  padding-right: 2em;
+}
+
+/* prevent the details columns from taking up the full width,
+ * when we don't have the request block.
+ */
+.content-block-details:first-child:nth-last-child(1) {
+  display: block;
+}
+
+.content-block-request {
+  padding-left: 2em;
 }
 
 .code {
   font-size: 13px;
-  font-family: 'Consolas', "Liberation Mono", Menlo, Courier, monospace;
+  font-family: 'Consolas', 'Liberation Mono', Menlo, Courier, monospace;
   border-radius: 5px;
   background: #282b2c;
   padding: 20px;
   color: #FFF;
 }
 
+/* TODO deprecate tablecard with the new table design
+ */
 .tableCard {
   /*background: @light_blue;
   margin-bottom: 10px;

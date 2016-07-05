@@ -18,35 +18,29 @@ const Verb = ({verb, method, uri}) => {
     // })
 
     return (
-        <div className="Grid">
-            <div className="Grid-left">
-                <div className="Grid-inside">
-                    {/*  description  */}
-                    <div>
-                        <h1>{verb.get('summary')}</h1>
-                        <p>{verb.get('description')}</p>
-                    </div>
-                    <Parameters parameters={verb.get('parameters')}/>
+        <div className="content-block">
+            <div className="content-block-details">
+                {/*  description  */}
+                <div>
+                    <h1>{verb.get('summary')}</h1>
+                    <p>{verb.get('description')}</p>
                 </div>
+                <Parameters parameters={verb.get('parameters')}/>
             </div>
-            <div className="Grid-right">
-                <div className="Grid-inside">
-                    <h3 className="text-right">HTTP Request</h3>
-                    <code className="code">{method.toUpperCase()} {uri}</code>
-                    {responses.map((response, status) => {
-                        return (
-                            <div key={status}>
-                                <h3 className="text-right" >Example Response (status: {status}) </h3>
-                                
-                                    <Response response={response} />
+            <div className="content-block-request">
+                <h3 className="content-block-request-title">HTTP Request</h3>
+                <code className="code">{method.toUpperCase()} {uri}</code>
+                {responses.map((response, status) => {
+                    return (
+                        <div key={status}>
+                            <h3 className="content-block-request-title" >Example Response (status: {status}) </h3>
 
-                            </div>
-                        )
-                    }
-                    ).toList()}
-                    
-                    
-                </div>
+                                <Response response={response} />
+
+                        </div>
+                    )
+                }
+                ).toList()}
             </div>
         </div>
     )
