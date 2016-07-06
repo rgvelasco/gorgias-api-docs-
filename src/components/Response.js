@@ -51,7 +51,6 @@ export const ResponseTableRow = ({a, b}) => {
 }
 
 export const ResponseMessage = ({message}) => {
-    console.log(typeof message)
     return (
         <code className="code">{message}</code>
     )
