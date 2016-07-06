@@ -27,10 +27,11 @@ export const Response = ({response}) => {
 }
 
 export const ResponseTable = ({properties}) => {
+    
     return (
         <table>
             <tbody>
-                {properties.map((a, b) => (
+                {properties.valueSeq().map((a, b) => (
                     <ResponseTableRow a={a} b={b} key={b}  />
                 )).toArray()}
                 
