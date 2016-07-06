@@ -13,10 +13,12 @@ export const Response = ({response}) => {
         res = response.get('description')
     }
 
-    if (typeof res === 'object') {
-        if (res.get('$ref')) {
-            props = openapi.getIn(['definitions', res.get('$ref').replace('#/definitions/', ''), 'properties'])
-        }
+    if (typeof res === 'object' && res.get('$ref')) {
+        props = openapi.getIn(['definitions', res.get('$ref').replace('#/definitions/', ''), 'properties'])
+    }
+
+    if (typeof res === 'object' && res.getIn(['items', '$ref'])) {
+        props = openapi.getIn(['definitions', res.getIn(['items', '$ref']).replace('#/definitions/', ''), 'properties'])
     }
 
     return (
@@ -31,16 +33,17 @@ export const ResponseTable = ({properties}) => {
     return (
         <table>
             <tbody>
-                {properties.valueSeq().map((a, b) => (
-                    <ResponseTableRow a={a} b={b} key={b}  />
-                )).toArray()}
+                {properties.map((a, b) => {
+                    return <ResponseTableRow a={a} b={b} />
+                }
+                )}
 
             </tbody>
         </table>
     )
 }
 
-export const ResponseTableRow = ({a,b}) => {
+export const ResponseTableRow = ({a, b}) => {
     return (
         <tr>
             <td>{b}</td>
@@ -50,6 +53,7 @@ export const ResponseTableRow = ({a,b}) => {
 }
 
 export const ResponseMessage = ({message}) => {
+    console.log(typeof message)
     return (
         <code className="code">{message}</code>
     )
