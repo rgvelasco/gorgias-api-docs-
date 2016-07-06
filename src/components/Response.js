@@ -29,7 +29,6 @@ export const Response = ({response}) => {
 }
 
 export const ResponseTable = ({properties}) => {
-
     return (
         <table>
             <tbody>
@@ -37,7 +36,6 @@ export const ResponseTable = ({properties}) => {
                     return <ResponseTableRow a={a} b={b} />
                 }
                 )}
-
             </tbody>
         </table>
     )
