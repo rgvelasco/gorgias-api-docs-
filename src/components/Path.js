@@ -1,41 +1,33 @@
 import React from 'react'
 import {fromJS} from 'immutable'
 import data from '../../data/openapi.json'
+import {Responses} from './Responses'
+import {Properties} from './Properties'
+
 const openapi = fromJS(data)
 
-const Verb = ({verb, method, uri}) => (
-    <div className="Grid">
-        <div className="Grid-left">
-            <div className="Grid-inside">
-                {/*  description  */}
-                <div>
-                    <h1>{verb.get('summary')}</h1>
-                    <p>{verb.get('description')}</p>
-                </div>
+const Verb = ({verb, method, uri}) => {
+    var responses = verb.get('responses')
+
+    return (
+        <div className="content-block">
+            <div className="content-block-details">
+                <h1>{verb.get('summary')}</h1>
+                <p>{verb.get('description')}</p>
+
                 <Parameters parameters={verb.get('parameters')}/>
             </div>
-        </div>
-        <div className="Grid-right">
-            <div className="Grid-inside">
-                <h3 className="text-right">HTTP Request</h3>
-                <code className="code">{method.toUpperCase()} {uri}</code>
-
-                <h3 className="text-right">Example Response (status: {status}) </h3>
-                <code className="code"></code>
-                <Responses responses={verb.get('responses')}  />
+            <div className="content-block-request">
+                <h3 className="content-block-request-title">HTTP Request</h3>
+                <code className="content-block-request-code">
+                    <strong>
+                        {method.toUpperCase()}
+                    </strong> {uri}
+                </code>
+                <Responses responses={responses} />
             </div>
         </div>
-    </div>
-)
-
-export const Responses = ({responses}) => {
-    
-    return (<div></div>)
-}
-
-export const Response = ({responseRef}) => {
-    console.log(responses)
-    return (<div></div>)
+    )
 }
 
 export const Parameters = ({parameters}) => {
@@ -43,38 +35,23 @@ export const Parameters = ({parameters}) => {
         return null
     }
 
-    return (
-        <table className="ui very basic collapsing celled table">
-            
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-            <tbody>
-            {parameters.map((paramRef, i) => (
-                <Parameter key={i} paramRef={paramRef}/>
-            )).toList()}
-            </tbody>
-        </table>
-    )
-}
-
-export const Parameter = ({paramRef}) => {
-    if (!paramRef.get('$ref')) {
-        console.error('Invalid parameter reference', paramRef)
-        return null
+    /* map the parameters to the same structure as the definition object,
+     * so we can re-use the properties component.
+     */
+    var def = {
+        properties: {}
     }
-    const param = openapi.getIn(['parameters', paramRef.get('$ref').replace('#/parameters/', '')])
+
+    parameters.map((paramRef, i) => {
+        let param = openapi.getIn(['parameters', paramRef.get('$ref').replace('#/parameters/', '')])
+
+        def.properties[param.get('name')] = param
+    })
+
+    def = fromJS(def)
 
     return (
-        <tr>
-            <td>{param.get('name')}</td>
-            <td>{param.get('type')}</td>
-            <td>{param.get('description')}</td>
-        </tr >
+        <Properties name="Request" definition={def}/>
     )
 }
 
@@ -82,8 +59,7 @@ export const Path = ({uri, verbs}) => {
     const parts = uri.split('/')
     const anchor = parts.slice(1, parts.length - 1).join('-')
     return (
-        <div className="paths" id={anchor}>
-            
+        <div className="path" id={anchor}>
             {verbs.map((verb, method) => (
                 <Verb key={method} verb={verb} method={method} uri={uri}/>
             )).toList()}
