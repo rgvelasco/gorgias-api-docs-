@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Router, browserHistory} from 'react-router'
+import {Router, hashHistory} from 'react-router'
 import {fromJS} from 'immutable'
 import axios from 'axios'
 import {routes} from './routes'
@@ -11,8 +11,9 @@ axios.get(__docUrl)
         window.openapi = fromJS(resp)
 
         ReactDOM.render(
-            <Router history={browserHistory}
-                    children={routes}
+            <Router
+                history={hashHistory}
+                children={routes}
             />,
             document.getElementById('root')
         )
