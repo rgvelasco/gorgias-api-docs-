@@ -1,23 +1,17 @@
 var path = require('path');
 var webpack = require('webpack');
 
-const DEV_URL = "'http://acme.gorgias.docker/doc/openapi.json'"
+const PROD_URL = "'https://gorgias.gorgias.io/doc/openapi.json'"
 
 module.exports = {
-    devtool: 'eval',
-    entry: [
-        'webpack-dev-server/client?http://localhost:3000',
-        'webpack/hot/only-dev-server',
-        './src/main'
-    ],
+    entry: './src/main',
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, 'static/bundle'),
         filename: 'bundle.js',
-        publicPath: '/static/'
+        publicPath: '/static/bundle/'
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.DefinePlugin({'__docUrl': DEV_URL})
+        new webpack.DefinePlugin({'__docUrl': PROD_URL})
     ],
     module: {
         preLoaders: [
