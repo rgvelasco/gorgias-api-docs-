@@ -5,7 +5,7 @@ import {Map, List} from 'immutable'
 export const JSONTree = ({data}) => {
     return (
         <div className="json-tree">
-            {switchComponent(data, true)}
+            {switchComponent(data, true, true)}
         </div>
     )
 }
@@ -90,7 +90,7 @@ const ObjectComponent = ({data, root = false, last = false}) => {
                 }).toList().toJS()
             }
             </div>
-            <span>{rightBracket}{!last && !root && ','}</span>
+            <span>{rightBracket}{!last && ','}</span>
         </div>
     )
 }
@@ -108,11 +108,13 @@ const ArrayComponent = ({data, root = false, last = false}) => {
                 data.map((v, idx) => {
                     idx++
                     const childNode = switchComponent(v, true, idx >= data.size)
+                    const isObject = childNode.type.name && childNode.type.name === 'ObjectComponent'
+                    const isArray = childNode.type.name && childNode.type.name === 'ArrayComponent'
 
                     return (
                         <div key={idx} className="field">
                             {childNode}
-                            {idx < data.size && ','}
+                            {idx < data.size && !isObject && !isArray && ','}
                         </div>
                     )
                 })
