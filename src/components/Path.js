@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 import {fromJS} from 'immutable'
+import slug from 'slug'
 import {JSONTree} from './JsonTree'
 
 import {examplify, getDefinitionProperties, Code} from './../utils'
@@ -13,11 +14,11 @@ import {examplify, getDefinitionProperties, Code} from './../utils'
  */
 export const Path = ({uri, verbs}) => {
     const parts = uri.split('/')
-    const anchor = parts.slice(1, parts.length - 1).join('-')
+    const anchor = slug(parts.slice(1, parts.length - 1).join('-'))
     return (
         <div className="paths" id={anchor}>
             {verbs.map((verb, method) => (
-                <Verb key={method} verb={verb} method={method} uri={uri}/>
+                <Verb key={method} verb={verb} method={method} uri={uri} anchor={anchor}/>
             )).toList()}
         </div>
     )
@@ -28,29 +29,37 @@ export const Path = ({uri, verbs}) => {
  * @param verb the data
  * @param method the name of the verb itself
  * @param uri the URI of the current endpoint
+ * @param anchor anchor from the Path
  */
-const Verb = ({verb, method, uri}) => (
-    <div className="Grid">
-        <div className="Grid-left">
-            <div className="Grid-inside">
-                {/*  description  */}
-                <div>
-                    <h1>{verb.get('summary')}</h1>
-                    <p>{verb.get('description')}</p>
+const Verb = ({verb, method, uri, anchor}) => {
+    const summary = verb.get('summary')
+    const verbAnchor = slug(`${anchor}-${summary}`)
+    return (
+        <div className="Grid">
+            <div className="Grid-left">
+                <div className="Grid-inside">
+                    {/*  description  */}
+                    <div id={verbAnchor}>
+                        <h1>
+                            <Link to={`/#${verbAnchor}`} className="fa fa-paragraph" />
+                            {summary}
+                        </h1>
+                        <p>{verb.get('description')}</p>
+                    </div>
+                    <Parameters parameters={verb.get('parameters')}/>
                 </div>
-                <Parameters parameters={verb.get('parameters')}/>
             </div>
-        </div>
-        <div className="Grid-right">
-            <div className="Grid-inside">
-                <h3 className="text-right">HTTP Request</h3>
-                <Code>{method.toUpperCase()} {uri}</Code>
+            <div className="Grid-right">
+                <div className="Grid-inside">
+                    <h3 className="text-right">HTTP Request</h3>
+                    <Code>{method.toUpperCase()} {uri}</Code>
 
-                <Responses responses={verb.get('responses')}  />
+                    <Responses responses={verb.get('responses')}  />
+                </div>
             </div>
         </div>
-    </div>
-)
+    )
+}
 
 /**
  * A loop to generate all required responses (displayed in the right part of the doc).
