@@ -14,12 +14,7 @@ export const App = ({children}) => {
             {/*   Navigation SideColumn   */}
             <div className="navigation">
                 <Link to="/">
-                    <div className="logo-wrapper">
-                        <h1 className="logo">
-                            <img className="gorgias-logo" src="/static/img/gorgias-logo-white-transparent.png"/>
-                            <span>API</span>
-                        </h1>
-                    </div>
+                    <h1 className="brand">Gorgias API</h1>
                 </Link>
                 <p>INTRODUCTION</p>
                 <ul>

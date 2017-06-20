@@ -44,7 +44,7 @@ const Verb = ({verb, method, uri}) => (
         <div className="Grid-right">
             <div className="Grid-inside">
                 <h3 className="text-right">HTTP Request</h3>
-                <Code>{method.toUpperCase()} {uri}</Code>
+                <Code>{method.toUpperCase()} https://your-domain.gorgias.io{uri}</Code>
 
                 <Responses responses={verb.get('responses')}  />
             </div>

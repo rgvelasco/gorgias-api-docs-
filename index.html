@@ -1,12 +1,32 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <title>Gorgias Docs</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/table.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script src="/static/bundle/bundle.js"></script>
-  </body>
+</head>
+<body>
+<div id="root"></div>
+<script src="/static/bundle/bundle.js"></script>
+<!-- Smooch chat widget -->
+<script src="https://gorgias-assets.global.ssl.fastly.net/static/public/js/gorgias-chat.js"></script>
+<script>
+    GorgiasChat.init({
+        "icon": "https://gorgias-uploads.global.ssl.fastly.net/0bgJ1Q6QZ2vXKOMk/logo-square-c7eda590-e361-487c-bec8-4c5748bf933a.png",
+        "headerColor": "#0993f4",
+        "chatIconColor": "#0993f4",
+        "conversationColor": "#0993f4",
+        "smooch": {
+            appToken: 'awljqxgza88ba9hgy68bm6qkg',
+            emailCaptureEnabled: true,
+            properties: {
+                'current_page': window.location.href
+            },
+            customText: {
+                introductionText: 'We\'re here to chat, so ask us anything!'
+            }
+        }
+    })
+</script>
+</body>
 </html>

@@ -28,6 +28,13 @@ export const Properties = ({name, definition}) => {
     if (!definition) {
         return null
     }
+    const requiredProps = definition.get('required') || []
+    const properties = definition
+        .get('properties')
+        .sortBy((p, name) => name)
+        .sortBy((p, name) => !requiredProps.includes(name))
+        .sortBy((p, name) => name.indexOf('_datetime') !== -1)
+        .sortBy((p, name) => name !== 'id')
 
     return (
         <div className="attributes">
@@ -37,21 +44,15 @@ export const Properties = ({name, definition}) => {
                 <table className="ui celled striped table" id="table">
                     <thead>
                         <tr>
-                            <th>
-                                Name
-                            </th>
-                            <th>
-                                Type
-                            </th>
-                            <th>
-                                Description
-                            </th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
                     {
-                        definition.get('properties').map((prop, name) => (
-                            <Property key={name} prop={prop} name={name} required={definition.get('required')}/>
+                        properties.map((prop, name) => (
+                            <Property key={name} prop={prop} name={name} required={requiredProps}/>
                         )).toList()
                     }
                     </tbody>
