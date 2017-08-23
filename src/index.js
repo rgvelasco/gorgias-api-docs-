@@ -4,7 +4,7 @@ import {fromJS} from 'immutable'
 import axios from 'axios'
 import {router} from './routes'
 
-axios.get('http://acme.gorgias.docker/doc/openapi.json')
+axios.get(process.env.REACT_APP_OPENAPI_URL)
     .then((json = {}) => json.data)
     .then(resp => {
         window.openapi = fromJS(resp)
