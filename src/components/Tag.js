@@ -3,10 +3,10 @@ import {Properties} from './Properties'
 import {Path} from './Path'
 
 // A Tag groups a list of Paths
-export const Tag = ({params}) => {
+export const Tag = ({match}) => {
     const openapi = window.openapi
     const tags = openapi.get('tags')
-    const tag = tags.find((tag) => tag.get('name') === params.tag)
+    const tag = tags.find((tag) => tag.get('name') === match.params.tag)
 
     const definitions = openapi.get('definitions')
     const definition = definitions.find((def, name) => name === tag.get('name'))
@@ -32,7 +32,7 @@ export const Tag = ({params}) => {
                     <Properties name={tag.get('name')} definition={definition}/>
                 </div>
             </div>
-            <div className="Grid-right"></div>
+            <div className="Grid-right"/>
             {
                 paths.map((verbs, uri) => (
                     <Path key={uri} verbs={verbs} uri={uri}/>

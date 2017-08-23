@@ -1,0 +1,26 @@
+/* Color Variables */
+/* Font Variables */
+/* JSON Tree */
+.json-tree .content {
+  padding-left: 40px; }
+
+.json-tree .string-value {
+  color: #478dff;
+  white-space: pre-line; }
+
+.json-tree .number-value {
+  color: #43a62e; }
+
+.json-tree .boolean-value {
+  color: #D25252; }
+
+.json-tree .null-value {
+  color: #f7ff63; }
+
+.json-tree .link-object {
+  padding: 5px 0;
+  display: inline-block;
+  color: #888;
+  text-decoration: none; }
+  .json-tree .link-object:active {
+    color: #444444; }

@@ -1,7 +1,7 @@
 import React from 'react'
-import {Link} from 'react-router'
-import '../../static/css/main.less'
-
+import {NavLink} from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '../static/css/main.css'
 
 export const App = ({children}) => {
     const openapi = window.openapi
@@ -11,19 +11,19 @@ export const App = ({children}) => {
 
     return (
         <div>
-            {/*   Navigation SideColumn   */}
+            {/* Navigation SideColumn  */}
             <div className="navigation">
-                <Link to="/">
+                <NavLink to="/">
                     <h1 className="brand">Gorgias API</h1>
-                </Link>
+                </NavLink>
                 <p>INTRODUCTION</p>
                 <ul>
                     <li>
                         {/*<Link activeClassName="activeLink" to="/getting-started">Getting Started</Link>*/}
-                        <Link activeClassName="activeLink" to="/authentication">Authentication</Link>
-                        <Link activeClassName="activeLink" to="/pagination">Pagination</Link>
-                        <Link activeClassName="activeLink" to="/querying-the-api">Querying the API</Link>
-                        <Link activeClassName="activeLink" to="/errors">Errors</Link>
+                        <NavLink activeClassName="activeLink" to="/authentication">Authentication</NavLink>
+                        <NavLink activeClassName="activeLink" to="/pagination">Pagination</NavLink>
+                        <NavLink activeClassName="activeLink" to="/querying-the-api">Querying the API</NavLink>
+                        <NavLink activeClassName="activeLink" to="/errors">Errors</NavLink>
                     </li>
                 </ul>
 
@@ -32,12 +32,12 @@ export const App = ({children}) => {
                     {
                         orderedTags.map(tag => (
                             <li key={tag.get('name')}>
-                                <Link
+                                <NavLink
                                     activeClassName="activeLink"
                                     to={`/api/${tag.get('name')}`}
                                 >
                                     {tag.get('name')}
-                                </Link>
+                                </NavLink>
                             </li>
                         )).toList().toJS()
                     }
@@ -48,12 +48,12 @@ export const App = ({children}) => {
                     {
                         orderedDefinitions.map((def, name) => (
                             <li key={name}>
-                                <Link
+                                <NavLink
                                     activeClassName="activeLink"
                                     to={`/definitions/${name}`}
                                 >
                                     {name}
-                                </Link>
+                                </NavLink>
                             </li>
                         )).toList().toJS()
                     }
@@ -63,8 +63,8 @@ export const App = ({children}) => {
             {/*   MAIN (everything except the Navigation SideColumn)   */}
             {/*  CONTENT (Tag or Definition)  */}
             <div className="main">
-                <div className="left-background"></div>
-                <div className="right-background"></div>
+                <div className="left-background"/>
+                <div className="right-background"/>
                 {children}
             </div>
         </div>

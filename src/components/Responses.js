@@ -1,14 +1,12 @@
 import React from 'react'
-import {fromJS} from 'immutable'
-import data from '../../data/openapi.json'
-const openapi = fromJS(data)
+import {Table} from 'reactstrap'
 
 export const Responses = ({responses}) => {
     return (
         <div className="responses">
             {
                 responses.map((response, status) => (
-                    <Response key={status} response={response} status={status} />
+                    <Response key={status} response={response} status={status}/>
                 )).toList()
             }
         </div>
@@ -16,8 +14,9 @@ export const Responses = ({responses}) => {
 }
 
 const Response = ({response, status}) => {
-    var schema = response.get('schema')
-    var props = null
+    const openapi = window.openapi
+    const schema = response.get('schema')
+    let props = null
 
     if (!schema) {
         return null
@@ -33,22 +32,22 @@ const Response = ({response, status}) => {
                 Response object <strong>({status})</strong>
             </h3>
 
-            {props ? <ResponseTable properties={props} /> : null}
+            {props ? <ResponseTable properties={props}/> : null}
         </div>
     )
 }
 
 const ResponseTable = ({properties}) => {
     return (
-        <table className="response-table">
+        <Table>
             <tbody>
-                {
-                    properties.map((property, name) => (
-                        <ResponseTableRow property={property} name={name} key={name}  />
-                    )).toList()
-                }
+            {
+                properties.map((property, name) => (
+                    <ResponseTableRow property={property} name={name} key={name}/>
+                )).toList()
+            }
             </tbody>
-        </table>
+        </Table>
     )
 }
 
@@ -64,11 +63,11 @@ const ResponseTableRow = ({property, name}) => {
                 <span className="response-table-type">
                     {property.get('type')}
                 </span>
-                { property.get('description') ? (
+                {property.get('description') ? (
                     <p>
                         {property.get('description')}
                     </p>
-                ) : null }
+                ) : null}
             </td>
         </tr>
     )

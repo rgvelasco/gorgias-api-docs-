@@ -5,11 +5,12 @@ import {examplify, Code} from './../utils'
 
 
 // Definition
-export const Definition = ({params}) => {
+export const Definition = ({match}) => {
     const openapi = window.openapi
     const definitions = openapi.get('definitions')
+    const definitionName = match.params.definition
     const definition = definitions.find((def, name) => {
-        return name === params.definition
+        return name === definitionName
     })
 
     return (
@@ -17,9 +18,9 @@ export const Definition = ({params}) => {
             {/*  first block  */}
             <div className="Grid-left ">
                 <div className="Grid-inside">
-                    <h1>{params.definition}</h1>
+                    <h1>{definitionName}</h1>
                     <p>{definition.get('description')}</p>
-                    <Properties name={params.definition} definition={definition}/>
+                    <Properties name={definitionName} definition={definition}/>
                 </div>
             </div>
             <div className="Grid-right">

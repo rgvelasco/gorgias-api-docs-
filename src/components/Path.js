@@ -1,9 +1,9 @@
 import React from 'react'
-import {Link} from 'react-router'
 import {fromJS} from 'immutable'
 import {JSONTree} from './JsonTree'
+import {Table} from 'reactstrap'
 
-import {examplify, getDefinitionProperties, Code} from './../utils'
+import {Code, examplify, getDefinitionProperties} from './../utils'
 
 
 /**
@@ -46,7 +46,7 @@ const Verb = ({verb, method, uri}) => (
                 <h3 className="text-right">HTTP Request</h3>
                 <Code>{method.toUpperCase()} https://your-domain.gorgias.io{uri}</Code>
 
-                <Responses responses={verb.get('responses')}  />
+                <Responses responses={verb.get('responses')}/>
             </div>
         </div>
     </div>
@@ -135,15 +135,14 @@ export const Parameters = ({parameters}) => {
                 !!filteredParams.size && (
                     <div>
                         <h3>URL parameters</h3>
-                        <table className="ui very basic collapsing celled table">
-
+                        <Table>
                             <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Type</th>
-                                    <th>Location</th>
-                                    <th>Description</th>
-                                </tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Location</th>
+                                <th>Description</th>
+                            </tr>
                             </thead>
                             <tbody>
                             {
@@ -153,7 +152,7 @@ export const Parameters = ({parameters}) => {
                             }
                             </tbody>
 
-                        </table>
+                        </Table>
                     </div>
                 )
             }
@@ -162,7 +161,7 @@ export const Parameters = ({parameters}) => {
                     <div>
                         <h3>Example request body</h3>
                         <Code light>
-                            <JSONTree data={examplify(bodyParameter.get('schema'), true)} />
+                            <JSONTree data={examplify(bodyParameter.get('schema'), true)}/>
                         </Code>
                     </div>
                 )
@@ -189,7 +188,7 @@ export const Parameter = ({paramRef}) => {
 
     let displayComp = param.get('type')
 
-    {/* NOT USED FOR NOW
+    /* NOT USED FOR NOW
     let displayName = param.get('type')
     let displayComp = displayName
 
@@ -214,7 +213,7 @@ export const Parameter = ({paramRef}) => {
 
         displayComp = <Link to={url}><b>{displayName}</b></Link>
     }
-    */}
+    */
 
     return (
         <tr>

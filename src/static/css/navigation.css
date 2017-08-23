@@ -1,0 +1,27 @@
+/* Navigation */
+.navigation {
+  float: left;
+  width: 15%;
+  height: 100%;
+  overflow: auto;
+  background: #f2f9fe; }
+  .navigation .brand {
+    margin: 25px 20px 0px; }
+  .navigation a {
+    transition: color 0.1s; }
+    .navigation a:hover, .navigation a:active {
+      text-decoration: none !important; }
+  .navigation p {
+    font-weight: bold;
+    margin: 25px 20px 0px; }
+  .navigation ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0; }
+  .navigation li a {
+    padding: 0 20px;
+    display: block;
+    width: 100%; }
+  .navigation li .activeLink {
+    color: #222222;
+    background: rgba(0, 0, 0, 0.1); }

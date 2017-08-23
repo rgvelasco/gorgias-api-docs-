@@ -130,7 +130,7 @@ export const getDefinitionProperties = (ref, only = null, exclude = null, onlyRe
     let path = ref.split('/')
     path.shift()  // remove the first `#`
 
-    for (var key of path) {
+    for (const key of path) {
         response = response.get(key)
     }
 

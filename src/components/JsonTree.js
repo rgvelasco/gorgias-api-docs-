@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router'
+import {Link} from 'react-router-dom'
 import {Map, List} from 'immutable'
 
 export const JSONTree = ({data}) => {
@@ -46,8 +46,8 @@ const ObjectComponent = ({data, root = false, last = false}) => {
     let isSchema = false
     let ref = null
 
-    data.map((v, k) => {
-        if (k == '_schema') {
+    data.forEach((v, k) => {
+        if (k === '_schema') {
             isSchema = true
             ref = v
         }
@@ -61,34 +61,34 @@ const ObjectComponent = ({data, root = false, last = false}) => {
         <div className="object">
             <span>{root && !(data.size === 1 && isSchema) && leftBracket}</span>
             <div className="content">
-            {
-                data.map((v, k) => {
-                    idx++
-                    const childNode = switchComponent(v, false, idx >= data.size)
-                    const isObject = childNode.type.name && childNode.type.name === 'ObjectComponent'
-                    const isArray = childNode.type.name && childNode.type.name === 'ArrayComponent'
+                {
+                    data.map((v, k) => {
+                        idx++
+                        const childNode = switchComponent(v, false, idx >= data.size)
+                        const isObject = childNode.type.name && childNode.type.name === 'ObjectComponent'
+                        const isArray = childNode.type.name && childNode.type.name === 'ArrayComponent'
 
-                    if (k == '_schema') {
-                        return <LinkToDefinition key={`${k}-${idx}`} schemaRef={v} />
-                    }
+                        if (k === '_schema') {
+                            return <LinkToDefinition key={`${k}-${idx}`} schemaRef={v}/>
+                        }
 
-                    let childIsSchema = false
+                        let childIsSchema = false
 
-                    if (v && typeof v === 'object' && v.size === 1 && v.get('_schema')) {
-                        childIsSchema = true
-                    }
+                        if (v && typeof v === 'object' && v.size === 1 && v.get('_schema')) {
+                            childIsSchema = true
+                        }
 
-                    return (
-                        <div key={`${k}-${idx}`} className="field">
-                            <span className="string-key">"{k}": </span>
-                            {isObject && !childIsSchema && leftBracket}
-                            {isArray && leftArrayBracket}
-                            {childNode}
-                            {idx < data.size && !isObject && !isArray && ','}
-                        </div>
-                    )
-                }).toList().toJS()
-            }
+                        return (
+                            <div key={`${k}-${idx}`} className="field">
+                                <span className="string-key">"{k}": </span>
+                                {isObject && !childIsSchema && leftBracket}
+                                {isArray && leftArrayBracket}
+                                {childNode}
+                                {idx < data.size && !isObject && !isArray && ','}
+                            </div>
+                        )
+                    }).toList().toJS()
+                }
             </div>
             <span>{rightBracket}{!last && ','}</span>
         </div>
@@ -104,21 +104,21 @@ const ArrayComponent = ({data, root = false, last = false}) => {
         <div className="object">
             <span>{root && leftBracket}</span>
             <div className="content">
-            {
-                data.map((v, idx) => {
-                    idx++
-                    const childNode = switchComponent(v, true, idx >= data.size)
-                    const isObject = childNode.type.name && childNode.type.name === 'ObjectComponent'
-                    const isArray = childNode.type.name && childNode.type.name === 'ArrayComponent'
+                {
+                    data.map((v, idx) => {
+                        idx++
+                        const childNode = switchComponent(v, true, idx >= data.size)
+                        const isObject = childNode.type.name && childNode.type.name === 'ObjectComponent'
+                        const isArray = childNode.type.name && childNode.type.name === 'ArrayComponent'
 
-                    return (
-                        <div key={idx} className="field">
-                            {childNode}
-                            {idx < data.size && !isObject && !isArray && ','}
-                        </div>
-                    )
-                })
-            }
+                        return (
+                            <div key={idx} className="field">
+                                {childNode}
+                                {idx < data.size && !isObject && !isArray && ','}
+                            </div>
+                        )
+                    })
+                }
             </div>
             <span>{rightBracket}{!last && !root && ','}</span>
         </div>

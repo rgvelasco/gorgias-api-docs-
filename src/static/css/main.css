@@ -1,0 +1,217 @@
+/* Gorgias API Docs - style */
+/* Color Variables */
+/* Font Variables */
+/* Color Variables */
+/* Font Variables */
+/* JSON Tree */
+.json-tree .content {
+  padding-left: 40px; }
+
+.json-tree .string-value {
+  color: #478dff;
+  white-space: pre-line; }
+
+.json-tree .number-value {
+  color: #43a62e; }
+
+.json-tree .boolean-value {
+  color: #D25252; }
+
+.json-tree .null-value {
+  color: #f7ff63; }
+
+.json-tree .link-object {
+  padding: 5px 0;
+  display: inline-block;
+  color: #888;
+  text-decoration: none; }
+  .json-tree .link-object:active {
+    color: #444444; }
+
+/* Navigation */
+.navigation {
+  float: left;
+  width: 15%;
+  height: 100%;
+  overflow: auto;
+  background: #f2f9fe; }
+  .navigation .brand {
+    margin: 25px 20px 0px; }
+  .navigation a {
+    transition: color 0.1s; }
+    .navigation a:hover, .navigation a:active {
+      text-decoration: none !important; }
+  .navigation p {
+    font-weight: bold;
+    margin: 25px 20px 0px; }
+  .navigation ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0; }
+  .navigation li a {
+    padding: 0 20px;
+    display: block;
+    width: 100%; }
+  .navigation li .activeLink {
+    color: #222222;
+    background: rgba(0, 0, 0, 0.1); }
+
+/* Paths */
+.paths {
+  width: 100%; }
+  .paths .response {
+    margin-top: 50px; }
+
+/* Global */
+*,
+*:before,
+*:after {
+  box-sizing: border-box; }
+
+body {
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: "Source Sans Pro", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: #444444;
+  background: #f7f7f7;
+  margin: 0; }
+
+h1, h2, h3 {
+  font-family: "Source Sans Pro", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 700; }
+
+h2 {
+  font-size: 20px;
+  margin-top: 30px; }
+
+h3 {
+  font-size: 15px;
+  margin-top: 30px; }
+
+a:hover {
+  text-decoration: underline !important; }
+
+a {
+  color: black;
+  text-decoration: none; }
+
+/* layout
+ */
+html,
+body,
+#root,
+#root > div {
+  height: 100%; }
+
+#root {
+  overflow: hidden; }
+
+/* Main */
+.main {
+  float: left;
+  width: 85%;
+  height: 100%;
+  overflow: auto; }
+
+/* Grid */
+.Grid {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .Grid-right {
+    display: flex;
+    width: 50%;
+    background-color: #2d3134; }
+  .Grid-left {
+    width: 50%;
+    background-color: white; }
+  .Grid-inside {
+    padding: 40px;
+    width: 100%; }
+  .Grid-top {
+    align-items: flex-start; }
+
+.left-background {
+  position: absolute;
+  right: 42.5%;
+  z-index: -1;
+  height: 100%;
+  width: 42.5%;
+  background-color: white; }
+
+.right-background {
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 42.5%;
+  background-color: #2d3134; }
+
+/* Columns */
+.columnCenter {
+  float: left; }
+  .columnCenter, .columnCenter .columnCenter:before {
+    width: 45%; }
+  .columnCenter:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    left: 0%;
+    background-color: white; }
+
+.columnRight {
+  float: left;
+  background-color: #2d3134; }
+  .columnRight, .columnRight .columnRight:before {
+    width: 55%; }
+  .columnRight:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    left: 45%;
+    background-color: #2d3134; }
+
+.text-right {
+  color: #f7f7f7; }
+
+.code {
+  font-size: 13px;
+  font-family: "Consolas", "Liberation Mono", Menlo, Courier, monospace;
+  border-radius: 5px;
+  background: #282b2c;
+  padding: 20px;
+  color: #FFF; }
+  .code.light {
+    color: #000;
+    background: #f7f7f7; }
+  .code.inline {
+    display: inline;
+    padding: 2px 4px; }
+
+.request {
+  background: #f7f7f7;
+  color: #444444;
+  padding: 15px; }
+
+.tableCard {
+  /*background: $light_blue;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  font-size: 12px;*/ }
+
+/* Properties */
+.required {
+  display: inline-block;
+  color: white;
+  background: #478dff;
+  margin: 0 0 0 5px;
+  padding: 2px 10px;
+  font-size: 10px;
+  text-transform: uppercase;
+  border-radius: 100px; }

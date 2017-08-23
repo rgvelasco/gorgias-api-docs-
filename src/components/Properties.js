@@ -1,5 +1,6 @@
 import React from 'react'
-import {Link} from 'react-router'
+import {Link} from 'react-router-dom'
+import {Table} from 'reactstrap'
 
 const Property = ({prop, name, required}) => {
     const displayName = prop.get('type') || prop.get('$ref').split('/')[2]
@@ -41,13 +42,13 @@ export const Properties = ({name, definition}) => {
             <h2>{name} object properties:</h2>
             <div className="tableCard">
                 {/*  Table for the Attributes of the object  */}
-                <table className="ui celled striped table" id="table">
+                <Table striped>
                     <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Description</th>
-                        </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
                     </thead>
                     <tbody>
                     {
@@ -56,7 +57,7 @@ export const Properties = ({name, definition}) => {
                         )).toList()
                     }
                     </tbody>
-                </table>
+                </Table>
             </div>
         </div>
     )
