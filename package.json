@@ -1,7 +1,7 @@
 {
   "name": "gorgias-api-docs",
   "version": "0.1.0",
-  "homepage": "http://gorgias-api-docs.github.io/",
+  "homepage": "https://api.gorgias.io/",
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
@@ -16,7 +16,6 @@
     "reactstrap": "^4.8.0"
   },
   "devDependencies": {
-    "gh-pages": "^1.0.0",
     "node-sass-chokidar": "^0.0.3",
     "react-scripts": "1.0.11"
   },
@@ -24,7 +23,7 @@
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gsutil -m rsync -R build/ gs://gorgias-api-docs/",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
