@@ -23,12 +23,12 @@ export const Tag = ({match}) => {
             <div className="Grid-left">
                 <div className="Grid-inside">
                     <h1>{tag.get('name')}</h1>
-                    <p>{tag.get('description')}</p>
                     {
                         !!definition && (
                             <p>{definition.get('description')}</p>
                         )
                     }
+                    <p>{tag.get('description')}</p>
                     <Properties name={tag.get('name')} definition={definition}/>
                 </div>
             </div>
@@ -38,6 +38,7 @@ export const Tag = ({match}) => {
                     <Path key={uri} verbs={verbs} uri={uri}/>
                 )).toList()
             }
+
         </div>
     )
 }

@@ -4,6 +4,7 @@ import {JSONTree} from './JsonTree'
 import {Table} from 'reactstrap'
 
 import {Code, examplify, getDefinitionProperties} from './../utils'
+import slug from 'slug'
 
 
 /**
@@ -35,7 +36,7 @@ const Verb = ({verb, method, uri}) => (
             <div className="Grid-inside">
                 {/*  description  */}
                 <div>
-                    <h1>{verb.get('summary')}</h1>
+                    <h1 id={slug(`${method}-${uri}`)}>{verb.get('summary')}</h1>
                     <p>{verb.get('description')}</p>
                 </div>
                 <Parameters parameters={verb.get('parameters')}/>

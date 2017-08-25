@@ -38,7 +38,7 @@ export const Properties = ({name, definition}) => {
         .sortBy((p, name) => name !== 'id')
 
     return (
-        <div className="attributes">
+        <div className="attributes" id={`${name}-properties`}>
             <h2>{name} object properties:</h2>
             <div className="tableCard">
                 {/*  Table for the Attributes of the object  */}
