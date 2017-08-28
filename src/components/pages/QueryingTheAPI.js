@@ -32,7 +32,7 @@ export const QueryingTheAPI = () => (
                 <h3>Partial updates</h3>
                 <div>
                     When doing updates on objects (i.e. <Code light inline>PUT /api/tickets/{'{ticket_id}'}/</Code>),
-                    you don't have to send all the data; actually, it's better if you don't.
+                    you don't have to send all the data; actually, it's better if you don&#39;t.
                 </div>
                 <div>
                     Just send the fields you want to modify: it will avoid conflicts if other fields of the object has
@@ -56,13 +56,13 @@ export const QueryingTheAPI = () => (
                     </Code>
                     If you include any other field, it will <strong>update the object</strong>.
 
-                    You can do it; however, don't do it by mistake: it may erase previous modifications made by other
+                    You can do it; however, don&#39;t do it by mistake: it may erase previous modifications made by other
                     users, other scripts, or the rules of your account.
                 </div>
                 <div>
                     When including a nested <Code light inline>User</Code> in an object, if you want to reference it but
-                    don't have it's <Code light inline>id</Code>, you can instead include it's email address. If the
-                    user is not found, a new user will be created with this email address, and it's
+                    don't have it's <Code light inline>id</Code>, you can instead include it&#39;s email address. If the
+                    user is not found, a new user will be created with this email address, and it&#39;s
                     <Code light inline>id</Code> will be returned with the response to your request.
                 </div>
             </div>

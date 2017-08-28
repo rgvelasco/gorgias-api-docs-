@@ -49,7 +49,7 @@ export const Pagination = () => (
                             </li>
                             <li><b>per_page:</b> the number of items per page (<u>default</u>: 50)</li>
                             <li><b>item_count:</b> the total number of items available on this endpoint</li>
-                            <li><b>page:</b> the current page's number (<u>default</u>: 1)</li>
+                            <li><b>page:</b> the current page&#39;s number (<u>default</u>: 1)</li>
                             <li><b>current_page:</b> the URL to access to the current page</li>
                             <li><b>next_page:</b> the URL to access to the next page</li>
                         </ul>
@@ -59,7 +59,7 @@ export const Pagination = () => (
 
                 <h3>Overriding the default values</h3>
                 <p>
-                    It's easy to override the default pagination values. When hitting on a paginated endpoint, you just
+                    It&#39;s easy to override the default pagination values. When hitting on a paginated endpoint, you just
                     have to add the parameter you wish to override as a URL parameter. The only overridable parameters
                     are `page` and `per_page`. For example:
                 </p>

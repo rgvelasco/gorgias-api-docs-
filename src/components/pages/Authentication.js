@@ -16,7 +16,7 @@ export const Authentication = () => (
                 <h3>API Key authentication</h3>
                 <p>
                     The recommended method of authentication for using the API is to use API keys. You can find your
-                    account's API keys on your Gorgias helpdesk,
+                    account&#39;s API keys on your Gorgias helpdesk,
                     in <Code light inline>Settings > API Keys</Code>.<br/><br/>
 
                     Using an API Key for authentication is as easy as using Basic authentication: actually, it uses the

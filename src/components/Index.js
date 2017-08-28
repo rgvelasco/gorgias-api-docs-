@@ -14,7 +14,7 @@ export const Index = () => (
                     features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf
                     HTTP clients. We support cross-origin resource sharing, allowing you to interact
                     securely with our API from a client-side web application (though you should never expose
-                    your secret API key in any public website's client-side code). JSON is returned by all
+                    your secret API key in any public website&#39;s client-side code). JSON is returned by all
                     API responses, including errors, although our API libraries convert responses to
                     appropriate language-specific objects.
                 </p>
