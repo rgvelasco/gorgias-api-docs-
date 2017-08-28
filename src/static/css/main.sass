@@ -1,0 +1,204 @@
+
+/* Gorgias API Docs - style
+@import variables
+@import json-tree
+@import navigation
+@import mixins/breakpoints
+@import util
+@import normalize
+
+
+
+/* Global
+
+// body
+  // font-size: 14px
+  // line-height: 1.6
+  // font-family: $source_sans_pro
+  // color: $grey_text
+  // background: $light_grey_gorgias
+  // margin: 0
+
+// h1, h2, h3
+//   font-family: $source_sans_pro
+//   font-weight: 700
+
+
+/* Paths
+
+.paths
+  width: 100%
+
+  .response
+    margin-top: 50px
+
+
+
+// LAYOUT
+// ------------------------------------------------------
+
+html, body, #root, #root > div
+  height: 100%
+
+// #root is the app container
+#root
+  overflow: hidden
+  > div
+    // display: flex
+
+.navigation
+  // sidebar
+.main
+  // main-content
+
+
+/* Main
+.main
+  // +highlight(.5)
+  float: left
+  width: 85%
+  height: 100%
+  overflow: auto
+
+/* Grid
+.Grid
+  display: flex
+  flex-wrap: wrap
+  list-style: none
+  margin: 0
+  padding: 0
+
+
+  &-right
+    display: flex
+    width: 50%
+    background-color: $dark_grey_code
+
+
+  &-left
+    width: 50%
+    background-color: white
+
+  &-inside
+    padding: 40px
+    width: 100%
+
+  &-top
+    align-items: flex-start
+
+
+.left-background
+  position: absolute
+  right: 42.5%
+  z-index: -1
+  height: 100%
+  width: 42.5%
+  background-color: white
+
+.right-background
+  position: absolute
+  right: 0
+  z-index: -1
+  height: 100%
+  width: 42.5%
+  background-color: $dark_grey_code
+
+/* Columns
+
+.columnCenter
+  float: left
+
+  &, .columnCenter:before
+    width: 45%
+
+  &:before
+    content: ''
+    position: absolute
+    top: 0
+    bottom: 0
+    z-index: -1
+    left: 0%
+    background-color: white
+
+.columnRight
+  float: left
+  background-color: $dark_grey_code
+
+  &, .columnRight:before
+    width: 55%
+
+  &:before
+    content: ''
+    position: absolute
+    top: 0
+    bottom: 0
+    z-index: -1
+    left: 45%
+    background-color: $dark_grey_code
+
+.text-right
+  color: $light_grey_gorgias
+
+.code
+  font-size: 13px
+  font-family: $consolas
+  border-radius: 5px
+  background: $medium_grey_code
+  padding: 20px
+  color: #FFF
+
+  &.light
+    color: #000
+    background: $light_grey_gorgias
+
+  &.inline
+    display: inline
+    padding: 2px 4px
+
+.request
+  background: $light_grey_gorgias
+  color: $grey_text
+  padding: 15px
+
+.tableCard
+  /*background: $light_blue;
+   *margin-bottom: 10px;
+   *padding: 5px 10px;
+   *font-size: 12px;
+
+/* Properties
+
+.required
+  display: inline-block
+  color: white
+  background: $blue_gorgias
+  margin: 0 0 0 5px
+  padding: 2px 10px
+  font-size: 10px
+  text-transform: uppercase
+  border-radius: 100px
+
+
+
+// _response.sass
+
+pre
+  padding: 20px 40px
+  margin: 5px
+  color: #d0d0d0
+  background: #272b2d
+
+.string
+  color: #d0d0d0
+
+.number
+  color: #77bcd7
+
+.boolean
+  color: #77bcd7
+
+.null
+  color: #ebde68
+
+.key
+  color: #c1ef65
