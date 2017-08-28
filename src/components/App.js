@@ -11,8 +11,6 @@ export const App = ({children}) => {
             {/*   MAIN (everything except the Navigation SideColumn)   */}
             {/*  CONTENT (Tag or Definition)  */}
             <div className="main">
-                <div className="left-background"/>
-                <div className="right-background"/>
                 {children}
             </div>
         </div>

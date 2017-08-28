@@ -46,7 +46,7 @@ export const Errors = () => (
                 <p>
                     Either the endpoint you sent a request to, or an object reference in the path (like the
                     <Code light inline>user_id = 0</Code> in <Code light inline>/api/users/0/</Code>) references an
-                    object which doesn't exist.
+                    object which doesn&#39;t exist.
                 </p>
 
                 <Code light>
