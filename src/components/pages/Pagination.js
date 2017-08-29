@@ -11,8 +11,6 @@ export const Pagination = () => (
             {/*  Description  */}
             <h1> Pagination </h1>
             <p>Most of the endpoints of our API which returns a large amount of data are paginated.</p>
-
-
             <h3>Data structure</h3>
             <p>
                 When hitting on a paginated endpoint, the returned data structure is a bit different than when
@@ -54,7 +52,6 @@ export const Pagination = () => (
                     </ul>
                 </li>
             </ul>
-
 
             <h3>Overriding the default values</h3>
             <p>
