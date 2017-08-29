@@ -18,10 +18,31 @@ li
   // only for navigation
   // line-height: 28px
 
-// ------------------------------------------------
-// ||
-// ------------------------------------------------
+p, ul
+  margin-bottom: $boxpad
 
+.main
+  ul
+    li
+      margin-bottom: 6px
+      > ul
+        padding-left: $boxpad
+
+// TYPOGRAPHY
+// ------------------------------------------------
+// Headings special exception
+// on errors view you are using a span.code element within a heading
+h1, h2, h3, h4, h5
+  span.code
+    font-size: inherit
+    background-color: transparent!important
+
+// setting margins
+h1
+  margin: $boxpad auto
+
+h2, h3, h4, h5
+  margin: 20px auto
 
 
 .attributes
@@ -124,28 +145,30 @@ svg#logo
   font-family: $mono-ff
   font-size: $sm-fs + 0.05
   &:not(.inline)
+    line-height: 1.3rem
     padding: 20px $boxpad/2
     display: block
     margin-bottom: $boxpad
+
   a
     color: $gray
     text-decoration: underline
     &:hover
       color: $white
 
-  .json-tree
-    .object
-      // contains only a '{'
-      span
-        // setting it inline-block removes spaces
-        // display: inline-block
-      .content
-        padding-left: $boxpad/2
-        // is a basically row
-        .field
-          .string-key
-          .string-value
-          .number-value
+  // .json-tree
+  //   .object
+  //     // contains only a '{'
+  //     span
+  //       // setting it inline-block removes spaces
+  //       // display: inline-block
+  //     .content
+  //       padding-left: $boxpad/2
+  //       // is a basically row
+  //       .field
+  //         .string-key
+  //         .string-value
+  //         .number-value
 
   .content
     padding-left: $boxpad/2

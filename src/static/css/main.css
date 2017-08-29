@@ -25,7 +25,7 @@ html {
       font-size: 86%; }
       html body {
         font-size: 0.99rem;
-        line-height: 1.43rem; } }
+        line-height: 1.495rem; } }
 
 body {
   font-smooth: auto;
@@ -57,7 +57,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;
   font-weight: normal;
-  line-height: 1.43rem;
+  line-height: 1.495rem;
   color: #141D67;
   background-color: white; }
 
@@ -315,6 +315,24 @@ ul {
 li {
   list-style-type: none; }
 
+p, ul {
+  margin-bottom: 30px; }
+
+.main ul li {
+  margin-bottom: 6px; }
+  .main ul li > ul {
+    padding-left: 30px; }
+
+h1 span.code, h2 span.code, h3 span.code, h4 span.code, h5 span.code {
+  font-size: inherit;
+  background-color: transparent !important; }
+
+h1 {
+  margin: 30px auto; }
+
+h2, h3, h4, h5 {
+  margin: 20px auto; }
+
 a.brand {
   display: block;
   border-bottom: 2px solid #FFFFFF;
@@ -393,6 +411,7 @@ svg#logo {
   .code.inline {
     padding: 2px 5px; }
   .code:not(.inline) {
+    line-height: 1.3rem;
     padding: 20px 15px;
     display: block;
     margin-bottom: 30px; }
@@ -401,8 +420,6 @@ svg#logo {
     text-decoration: underline; }
     .code a:hover {
       color: #FFFFFF; }
-  .code .json-tree .object .content {
-    padding-left: 15px; }
   .code .content {
     padding-left: 15px; }
 
