@@ -41,7 +41,7 @@ const Verb = ({verb, method, uri}) => (
             <Parameters parameters={verb.get('parameters')}/>
         </div>
         <div className="col right">
-            <h3 className="text-right">HTTP Request</h3>
+            <strong className="h-small dark">HTTP Request</strong>
             <Code>{method.toUpperCase()} https://your-domain.gorgias.io{uri}</Code>
             <Responses responses={verb.get('responses')}/>
         </div>
@@ -104,7 +104,7 @@ export const Response = ({status, responseArg}) => {
 
     return (
         <div className="response">
-            <h3 className="text-right">Example response (success code: {status})</h3>
+            <strong className="h-small dark">Example response (success code: {status})</strong>
             <Code>
                 {response}
             </Code>

@@ -366,6 +366,61 @@ svg#logo {
   bottom: 0;
   left: 0; }
 
+.col.right .code {
+  position: relative;
+  margin-left: -15px;
+  margin-right: -15px; }
+
+.code {
+  color: #E9F2FE;
+  background-color: #25262F;
+  border-radius: 3px;
+  font-family: "Overpass Mono", monospace;
+  font-size: 0.8rem; }
+  .code.light {
+    background-color: #E9F2FE;
+    color: #141D67; }
+    .code.light .string-key {
+      color: #141D67; }
+    .code.light .string-value {
+      color: #3057FF; }
+    .code.light .number-value {
+      color: #FA2772; }
+    .code.light .code-comment {
+      color: #939393; }
+    .code.light .boolean-value {
+      color: #FA2772; }
+  .code.inline {
+    padding: 2px 5px; }
+  .code:not(.inline) {
+    padding: 20px 15px;
+    display: block;
+    margin-bottom: 30px; }
+  .code a {
+    color: #939393;
+    text-decoration: underline; }
+    .code a:hover {
+      color: #FFFFFF; }
+  .code .json-tree .object .content {
+    padding-left: 15px; }
+  .code .content {
+    padding-left: 15px; }
+
+.string-key {
+  color: #66B3EE; }
+
+.string-value {
+  color: #FF9B53; }
+
+.number-value {
+  color: #FA2772; }
+
+.code-comment {
+  color: #939393; }
+
+.boolean-value {
+  color: #FA2772; }
+
 strong.h-small {
   display: block;
   margin-bottom: 20px;
