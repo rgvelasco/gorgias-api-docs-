@@ -14,23 +14,21 @@ export const Definition = ({match}) => {
     })
 
     return (
-        <div className="Grid">
+        <div className="row">
+          <div className="wrap">
             {/*  first block  */}
-            <div className="Grid-left ">
-                <div className="Grid-inside">
-                    <h1>{definitionName}</h1>
-                    <p>{definition.get('description')}</p>
-                    <Properties name={definitionName} definition={definition}/>
-                </div>
+            <div className="col left ">
+                <h1>{definitionName}</h1>
+                <p>{definition.get('description')}</p>
+                <Properties name={definitionName} definition={definition}/>
             </div>
-            <div className="Grid-right">
-                <div className="Grid-inside">
-                    <h3 className="text-right">Example object:</h3>
-                    <Code>
-                        <JSONTree data={examplify(definition)}/>
-                    </Code>
-                </div>
+            <div className="col right">
+                <strong className="h-small dark">Example object:</strong>
+                <Code>
+                    <JSONTree data={examplify(definition)}/>
+                </Code>
             </div>
+          </div>
         </div>
     )
 }

@@ -26,4 +26,3 @@ export const router = (
         </App>
     </Router>
 )
-

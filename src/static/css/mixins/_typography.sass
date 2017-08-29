@@ -1,0 +1,64 @@
+// -------------------------------------------
+// typography utilities
+// credit : https://github.com/nedzen
+// -------------------------------------------
+
+=add-font($font-name)
+	@font-face
+		font-family: $font-name
+		// src: url('BrownStd-Regular.eot')
+		src: asset-url($font-name + '.woff2') format('woff2'), asset-url($font-name + '.woff') format('woff'), asset-url($font-name + '.ttf') format('truetype'), asset-url($font-name + 'svg#BrownStd-Regular') format('svg'), asset-url($font-name + '.eot?#iefix') format('embedded-opentype')
+		font-weight: normal
+		font-style: normal
+
+// Add fonts
+// +add-font('BrownStd-Regular')
+// +add-font('Brown-BoldAlt')
+// +add-font('Brown-Italic')
+
+// mixin font
+=font-smoothing
+	// auto / never / always
+	font-smooth: auto
+	// none  / subpixel-antialiased / antialiased
+	-webkit-font-smoothing: antialiased
+	// auto / inherit / unset / grayscale
+	-moz-osx-font-smoothing: grayscale
+
+// type-scaling alternatives :
+// $golden-ratio
+// $perfect-fifth
+// $augmented-fourth
+// $perfect-fourth
+// $major-third
+// $minor-third
+// $major-second
+// $minor-second
+
+h1
+	font-size: $h1-fs
+h2
+	font-size: $h2-fs
+h3
+	font-size: $h3-fs
+h4
+	font-size: $h4-fs
+
+h1, h2, h3, h4
+	line-height: $lh-scale * 1em
+
+html
+	font-size: $root-fs
+	+media-breakpoint-down(sm)
+		font-size: 86%
+		body
+			font-size: $base-fs * 1.1
+			line-height: $base-lh
+
+body
+	// check normalize file for text size, lh etc.
+	@if $font-smoothing
+		+font-smoothing
+
+// =small-fs
+// 	font-size: $sm-fs

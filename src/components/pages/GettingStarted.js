@@ -1,27 +1,23 @@
 import React from 'react'
 
 export const GettingStarted = () => (
-    <div className="Grid">
-
+    <div className="row">
+      <div className="wrap">
         {/*  Left Column  */}
-        <div className="Grid-left">
-            <div className="Grid-inside">
-                {/*  Description  */}
-                <h1> Getting Started </h1>
-                <p>
-                    Explaining stuff
-                </p>
-                <p>
-                    So cool
-                </p>
-            </div>
+        <div className="col left">
+            {/*  Description  */}
+            <h1> Getting Started </h1>
+            <p>
+                Explaining stuff
+            </p>
+            <p>
+                So cool
+            </p>
         </div>
 
         {/*  Right Column  */}
-        <div className="Grid-right">
-            <div className="Grid-inside">
-            </div>
+        <div className="col right">
         </div>
-
+      </div>
     </div>
 )

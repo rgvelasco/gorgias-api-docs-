@@ -1,5 +1,5 @@
 import React from 'react'
-// import 'bootstrap/dist/css/bootstrap.min.css'
+// we don't need bootstrap
 import '../static/css/main.css'
 import Navigation from './Navigation'
 

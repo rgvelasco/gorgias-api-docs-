@@ -16,7 +16,7 @@ export const Path = ({uri, verbs}) => {
     const parts = uri.split('/')
     const anchor = parts.slice(1, parts.length - 1).join('-')
     return (
-        <div className="paths" id={anchor}>
+        <div className="row paths" id={anchor}>
             {verbs.map((verb, method) => (
                 <Verb key={method} verb={verb} method={method} uri={uri}/>
             )).toList()}
@@ -31,24 +31,19 @@ export const Path = ({uri, verbs}) => {
  * @param uri the URI of the current endpoint
  */
 const Verb = ({verb, method, uri}) => (
-    <div className="Grid">
-        <div className="Grid-left">
-            <div className="Grid-inside">
-                {/*  description  */}
-                <div>
-                    <h1 id={slug(`${method}-${uri}`)}>{verb.get('summary')}</h1>
-                    <p>{verb.get('description')}</p>
-                </div>
-                <Parameters parameters={verb.get('parameters')}/>
+    <div className="wrap">
+        <div className="col left">
+            {/*  description  */}
+            <div>
+                <h1 id={slug(`${method}-${uri}`)}>{verb.get('summary')}</h1>
+                <p>{verb.get('description')}</p>
             </div>
+            <Parameters parameters={verb.get('parameters')}/>
         </div>
-        <div className="Grid-right">
-            <div className="Grid-inside">
-                <h3 className="text-right">HTTP Request</h3>
-                <Code>{method.toUpperCase()} https://your-domain.gorgias.io{uri}</Code>
-
-                <Responses responses={verb.get('responses')}/>
-            </div>
+        <div className="col right">
+            <h3 className="text-right">HTTP Request</h3>
+            <Code>{method.toUpperCase()} https://your-domain.gorgias.io{uri}</Code>
+            <Responses responses={verb.get('responses')}/>
         </div>
     </div>
 )

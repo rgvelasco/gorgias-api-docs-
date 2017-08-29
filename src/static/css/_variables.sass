@@ -1,11 +1,22 @@
 // 1) - Colors
 // ---------------------------
-$dark:       #1B1D1C
-$gray:       #9FA0A4
-$gray-light: #EAEAEA
+// design
+$dark:       #2B2C35
+$navy:       #2F303B
 
-$white: #FFFFFF
-$black: #000000
+$marine:     #141D67
+$blue:       #3057FF
+$sky:        #98BAEC
+$pale:       #E9F2FE
+
+$topaz:      #66B3EE
+$orange:     #FF9B53
+$rose:       #FA2772
+
+// primary
+$white:      #FFFFFF
+$black:      #000000
+$gray:       #939393
 
 // basics
 // $green:  #3FDD66
@@ -15,7 +26,7 @@ $black: #000000
 
 // social media
 $facebook: #1062b4
-$twitter: #23a9d1
+$twitter:  #23a9d1
 
 
 
@@ -25,23 +36,45 @@ $twitter: #23a9d1
 $base-bg: white
 $dt-fw:   normal
 
-$lnk-color:            black
-$lnk-decoration:       none
-$lnk-hover-color:      $dark
-$lnk-hover-decoration: none
+$lnk-color:            $marine
+$lnk-decoration:       underline
+$lnk-hover-color:      $blue
+$lnk-hover-decoration: underline
 
 
 // TYPOGRAPHY
 // ------------------------------------------------------
+// react is a bitch so we're importing fonts here like this
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i')
+@import url('https://fonts.googleapis.com/css?family=Overpass+Mono:300,400,600,700')
+
+// defaults
+// --------
 $font-path: ""
 $image-path: "../images/"
 
-$base-ff: 'Georgia', sans-serif
+$base-ff: 'Open Sans', sans-serif
 $mono-ff: 'Overpass Mono', monospace
+// alternative font familly for tpl with 2 fonts (not counting monospace)
 $alt-ff:  $mono-ff
+// makes typography look better
 $font-smoothing: true
 
-// Different ratios for setting up typography
+// sizing
+// ------
+// $lh-scale is used in various typography calculations
+$lh-scale: 1.3
+$root-fs: 100%
+// the $root-fs is set on <html>
+// base-* is set on <body>
+// 1rem = 16px when root-fs is 100%
+// 0.9rem = 14px when root-fs is 100%
+$base-fs: 0.9rem
+$base-fw: normal
+$base-lh: $lh-scale * 1.1rem
+
+
+// We are using Different ratios for setting up typography
 $golden-ratio:     1.618
 $perfect-fifth:    1.5
 $augmented-fourth: 1.414
@@ -50,23 +83,23 @@ $major-third:      1.25
 $minor-third:      1.2
 $major-second:     1.125
 $minor-second:     1.067
-
+// chosen type-scaling method
 $fs-scale: $minor-third
-$lh-scale: 1.3
 
-// the base unit
-$root-fs: 120%
-$base-fs: 1rem
-$base-fw: normal
-$base-lh: $lh-scale * 1.1rem
-$base-color: $dark
-
+// h1, h2, h3, h4, h5 sizing. check _typography.sass
 $sm-fs: $base-fs / $fs-scale
 $h4-fs: $base-fs * $fs-scale
 $h3-fs: $h4-fs * $fs-scale
 $h2-fs: $h3-fs * $fs-scale
 $h1-fs: $h2-fs * $fs-scale
 
+// colors
+$base-color: $marine
+
+// LAYOUT
+$sidebar-w: 240px
+$sidebar-bg: $pale
+$boxpad:    30px
 
 // UTILITIES
 // ------------------------------------------------------

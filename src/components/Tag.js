@@ -18,10 +18,11 @@ export const Tag = ({match}) => {
     })
 
     return (
-        <div className="Grid">
-            {/*  first block  */}
-            <div className="Grid-left">
-                <div className="Grid-inside">
+        <div>
+            {/* the parrent div shouldn't be there if you can get rid of it ! ; first block  */}
+            <div className="row">
+              <div className="wrap">
+                <div className="col left">
                     <h1>{tag.get('name')}</h1>
                     {
                         !!definition && (
@@ -31,14 +32,18 @@ export const Tag = ({match}) => {
                     <p>{tag.get('description')}</p>
                     <Properties name={tag.get('name')} definition={definition}/>
                 </div>
-            </div>
-            <div className="Grid-right"/>
-            {
-                paths.map((verbs, uri) => (
-                    <Path key={uri} verbs={verbs} uri={uri}/>
-                )).toList()
-            }
 
+                <div className="col right">
+                </div>
+
+              </div>
+            </div>
+
+            {
+              paths.map((verbs, uri) => (
+                <Path key={uri} verbs={verbs} uri={uri}/>
+              )).toList()
+            }
         </div>
     )
 }
