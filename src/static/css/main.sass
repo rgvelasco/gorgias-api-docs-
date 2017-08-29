@@ -51,15 +51,38 @@ h2, h3, h4, h5
   // not sure why this div.class is needed
 
 
-
+// TABLES
+// ------------------------------------------------
 .table
   // .table-striped this class is useless. in case you find it rename it to something else to avoid misleading with bs4
+  // +highlight(.6)
+  width: 100%
   thead
-    td
+    // +highlight(.6)
+    th
+      border-top: 1px solid $gray-light
+      border-bottom: 1px solid $gray-light
+      padding-top: $table-cell-padding
+      padding-bottom: $table-cell-padding
   tbody
     td
+      border-bottom: 1px dashed $gray-light
+      padding-top: $table-cell-padding
+      padding-bottom: $table-cell-padding
+
+
 
 span.required
+  display: inline-block
+  border-radius: 3px
+  color: $orange
+  font-family: $alt-ff
+  font-size: $sm-fs
+  line-height: 1rem
+  padding: 1px 3px 1px 5px
+  font-weight: 600
+  text-transform: uppercase
+  background-color: transparentize($orange, .76)
 
 
 
@@ -188,11 +211,11 @@ svg#logo
 // headings
 strong.h-small
   display: block
-  margin-bottom: 20px
+  margin-bottom: 10px
   font-family: $alt-ff
   font-size: $sm-fs
   &.light
-    // color: $sky
+    color: $sky
     text-transform: uppercase
   &.dark
     color: transparentize($pale, .5)
