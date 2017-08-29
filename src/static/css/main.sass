@@ -42,12 +42,56 @@ span.required
 
 
 
-#logo
+// BRAND
+// ------------------------------------------------------
+$brand-h: ($boxpad * 3)
+
+a.brand
+  display: block
+  border-bottom: 2px solid $white
+  padding: $boxpad 0 0 $boxpad
+  +size($sidebar-w, $brand-h)
+  +position(fixed, 0px, auto, auto, 0px)
+
+svg#logo
   // for awesome svg compression use this tool :
   // https://jakearchibald.github.io/svgomg/
   +size(115px, 27px)
 
+
+// LAYOUT
+// ------------------------------------------------------
+#root
+  height: 100%
+  > div
+    +display-flex
+    .navigation
+      min-width: $sidebar-w
+      background-color: $sidebar-bg
+
+    .main
+      flex-grow: 1
+      // +debug('*', pink)
+
+.navigation, .main
+  height: 100vh
+  position: relative
+
+.navigation-wrap > div, .col
+  padding: $boxpad
+
+.navigation-wrap, .main
+  overflow-y: auto
+
+.navigation
+  overflow: hidden
+
+.navigation-wrap
+  +position(absolute, $brand-h, 0, 0, 0)
+
+
 // CODE
+// ------------------------------------------------------
 .code
   .json-tree
     .object
@@ -72,37 +116,21 @@ strong.h-small
   &.dark
     color: transparentize($pale, .5)
 
-
-
-// LAYOUT
-// ------------------------------------------------------
-#root
-  height: 100%
-  > div
-    +display-flex
-    .navigation
-      min-width: $sidebar-w
-      background-color: $sidebar-bg
-
-    .main
-      flex-grow: 1
-      +debug('*', pink)
-
-.navigation
-  padding: $boxpad
+  // , & .col
+  //   padding: $boxpad
 
 
 //
 .row
-  margin-bottom: $boxpad
   .col
     width: 50%
     &.left
-      background-color: pink
+      border-bottom: 1px solid $pale
     &.right
-      background-color: blue
+      background-color: $col-left-bg
+      border-bottom: 1px solid transparentize($pale, .90)
+
 .wrap
-  background-color: orange
   +display-flex
 
 .nav-menu
@@ -128,6 +156,8 @@ strong.h-small
     line-height: 26px
 
 
+
+//
 
 
 

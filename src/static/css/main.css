@@ -315,19 +315,21 @@ ul {
 li {
   list-style-type: none; }
 
-#logo {
+a.brand {
+  display: block;
+  border-bottom: 2px solid #FFFFFF;
+  padding: 30px 0 0 30px;
+  width: 240px;
+  height: 90px;
+  position: fixed;
+  top: 0px;
+  right: auto;
+  bottom: auto;
+  left: 0px; }
+
+svg#logo {
   width: 115px;
   height: 27px; }
-
-strong.h-small {
-  display: block;
-  margin-bottom: 20px;
-  font-family: "Overpass Mono", monospace;
-  font-size: 0.75rem; }
-  strong.h-small.light {
-    text-transform: uppercase; }
-  strong.h-small.dark {
-    color: rgba(233, 242, 254, 0.5); }
 
 #root {
   height: 100%; }
@@ -343,23 +345,46 @@ strong.h-small {
       background-color: #E9F2FE; }
     #root > div .main {
       flex-grow: 1; }
-      #root > div .main * {
-        outline: 1px dotted pink; }
 
-.navigation {
+.navigation, .main {
+  height: 100vh;
+  position: relative; }
+
+.navigation-wrap > div, .col {
   padding: 30px; }
 
-.row {
-  margin-bottom: 30px; }
-  .row .col {
-    width: 50%; }
-    .row .col.left {
-      background-color: pink; }
-    .row .col.right {
-      background-color: blue; }
+.navigation-wrap, .main {
+  overflow-y: auto; }
+
+.navigation {
+  overflow: hidden; }
+
+.navigation-wrap {
+  position: absolute;
+  top: 90px;
+  right: 0;
+  bottom: 0;
+  left: 0; }
+
+strong.h-small {
+  display: block;
+  margin-bottom: 20px;
+  font-family: "Overpass Mono", monospace;
+  font-size: 0.75rem; }
+  strong.h-small.light {
+    text-transform: uppercase; }
+  strong.h-small.dark {
+    color: rgba(233, 242, 254, 0.5); }
+
+.row .col {
+  width: 50%; }
+  .row .col.left {
+    border-bottom: 1px solid #E9F2FE; }
+  .row .col.right {
+    background-color: #2F303B;
+    border-bottom: 1px solid rgba(233, 242, 254, 0.1); }
 
 .wrap {
-  background-color: orange;
   display: -webkit-box !important;
   display: -webkit-flex !important;
   display: -moz-box !important;
