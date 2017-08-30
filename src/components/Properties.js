@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import {Table} from 'reactstrap'
 
 const Property = ({prop, name, required}) => {
@@ -11,7 +10,7 @@ const Property = ({prop, name, required}) => {
         url.shift()
         url = `/${url.join('/')}`
 
-        displayComp = <Link to={url}><b>{displayName}</b></Link>
+        displayComp = <a href={url}><b>{displayName}</b></a>
     } else if (prop.get('type') && prop.get('format')) {
         displayComp = `${prop.get('format')} (${prop.get('type')})`
     }
@@ -42,7 +41,7 @@ export const Properties = ({name, definition}) => {
             <h2>{name} object properties:</h2>
             <div className="tableCard">
                 {/*  Table for the Attributes of the object  */}
-                <Table striped>
+                <Table>
                     <thead>
                     <tr>
                         <th>Name</th>

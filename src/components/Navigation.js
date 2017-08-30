@@ -1,12 +1,9 @@
 import React from 'react'
-import {withRouter} from 'react-router'
-import {NavLink} from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import '../static/css/main.css'
 import slug from 'slug'
 import {fromJS} from 'immutable'
+import logo from '../static/img/logo.svg'
 
-const Navigation = ({location}) => {
+const Navigation = () => {
     const openapi = window.openapi
     const paths = openapi.get('paths')
     const orderedTags = openapi.get('tags').sort((v1, v2) => v1.get('name') > v2.get('name'))
@@ -32,77 +29,134 @@ const Navigation = ({location}) => {
 
     return (
         <div className="navigation">
-            <NavLink to="/">
-                <h1 className="brand">Gorgias API</h1>
-            </NavLink>
-            <p>Introduction</p>
-            <ul>
-                <li>
-                    {/*<Link activeClassName="activeLink" to="/getting-started">Getting Started</Link>*/}
-                    <NavLink activeClassName="activeLink" to="/authentication">Authentication</NavLink>
-                    <NavLink activeClassName="activeLink" to="/pagination">Pagination</NavLink>
-                    <NavLink activeClassName="activeLink" to="/querying-the-api">Querying the API</NavLink>
-                    <NavLink activeClassName="activeLink" to="/errors">Errors</NavLink>
-                </li>
-            </ul>
+            <div className="navigation-wrap">
+                <div>
+                    <a href="/" className="brand">
+                      <img src={logo} id="logo" alt="Gorgias API" />
+                    </a>
+                    <div className="select-menu">
+                      <select className="fld select">
+                        <optgroup label="GENERAL">
+                          <option value="#intro">Introduction</option>
+                          <option value="#authentication">Authentication</option>
+                          {/* did you can nest another <optgroup> here if you want to */}
+                          <option value="#pagination">Pagination</option>
+                          <option value="#querying-the-api" selected>Querying the API</option>
+                          <option value="#errors">Errors</option>
+                        </optgroup>
 
-            <p>Core resources</p>
-            <ul>
-                {
-                    orderedResources.map(tag => (
-                        <li key={tag.get('name')}>
-                            <NavLink
-                                activeClassName="activeLink"
-                                to={`/api/${tag.get('name')}`}
-                            >
-                                {tag.get('name')}
-                            </NavLink>
-                            {
-                                location.pathname.includes(`/api/${tag.get('name')}`) && (
-                                    <ul className="subNav">
-                                        <li>
-                                            <a href={`#${tag.get('name')}-properties`}
-                                               title={`${tag.get('name')} object properties`}
-                                            >
-                                                {tag.get('name')} object
-                                            </a>
-                                        </li>
-                                        {
-                                            tag.get('subResources').map((sub) => (
-                                                <li key={sub.get('path') + sub.get('name')}>
-                                                    <a href={`#${slug(`${sub.get('method')}-${sub.get('path')}`)}`}
-                                                       title={sub.get('title')}
+                        <optgroup label="CORE RESOURCES">
+                          {/*
+                            orderedResources.map(tag => (
+                                <li key={tag.get('name')}>
+                                    <a href={`#${tag.get('name')}`}>
+                                        {tag.get('name')}
+                                    </a>
+                                    {
+                                        window.location.hash.includes(`${tag.get('name')}`) && (
+                                            <ul className="nav-menu nested">
+                                                <li>
+                                                    <a href={`#${tag.get('name')}-properties`}
+                                                       title={`${tag.get('name')} object properties`}
                                                     >
-                                                        {sub.get('name')}
+                                                        {tag.get('name')} object
                                                     </a>
                                                 </li>
-                                            ))
-                                        }
-                                    </ul>
-                                )
-                            }
-                        </li>
-                    )).toList().toJS()
-                }
-            </ul>
+                                                {
+                                                    tag.get('subResources').map((sub) => (
+                                                        <li key={sub.get('path') + sub.get('name')}>
+                                                            <a href={`#${slug(`${sub.get('method')}-${sub.get('path')}`)}`}
+                                                               title={sub.get('title')}
+                                                            >
+                                                                {sub.get('name')}
+                                                            </a>
+                                                        </li>
+                                                    ))
+                                                }
+                                            </ul>
+                                        )
+                                    }
+                                </li>
+                            )).toList().toJS()
+                          */}
+                           <option>Event</option>
+                           <option>Integration</option>
+                           <option>Rule</option>
+                           <option>Ticket</option>
+                           <option>User</option>
+                           <option>View</option>
+                        </optgroup>
+                        <optgroup label="ALL OBJECTS">
+                          <option value="#intro">Introduction</option>
+                          <option value="#authentication">Authentication</option>
+                          <option value="#pagination">Pagination</option>
+                          <option value="#querying-the-api">Querying the API</option>
+                          <option value="#errors">Errors</option>
+                        </optgroup>
+                      </select>
+                    </div>
+                    <strong className="h-small light">General</strong>
+                    <ul className="nav-menu">
+                        <li><a className="active" href="#intro">Introduction</a></li>
+                        <li><a href="#authentication">Authentication</a></li>
+                        <li><a href="#pagination">Pagination</a></li>
+                        <li><a href="#querying-the-api">Querying the API</a></li>
+                        <li><a href="#errors">Errors</a></li>
+                    </ul>
 
-            <p>Object definitions</p>
-            <ul>
-                {
-                    orderedDefinitions.map((def, name) => (
-                        <li key={name}>
-                            <NavLink
-                                activeClassName="activeLink"
-                                to={`/definitions/${name}`}
-                            >
-                                {name}
-                            </NavLink>
-                        </li>
-                    )).toList().toJS()
-                }
-            </ul>
+                    <strong className="h-small light">Core resources</strong>
+                    <ul className="nav-menu">
+                        {
+                            orderedResources.map(tag => (
+                                <li className="expandable" key={tag.get('name')}>
+                                    <a href={`#${tag.get('name')}`}>
+                                        {tag.get('name')}
+                                    </a>
+                                    {
+                                        window.location.hash.includes(`${tag.get('name')}`) && (
+                                            <ul className="nav-menu nested">
+                                                <li>
+                                                    <a href={`#${tag.get('name')}-properties`}
+                                                       title={`${tag.get('name')} object properties`}
+                                                    >
+                                                        {tag.get('name')} object
+                                                    </a>
+                                                </li>
+                                                {
+                                                    tag.get('subResources').map((sub) => (
+                                                        <li key={sub.get('path') + sub.get('name')}>
+                                                            <a href={`#${slug(`${sub.get('method')}-${sub.get('path')}`)}`}
+                                                               title={sub.get('title')}
+                                                            >
+                                                                {sub.get('name')}
+                                                            </a>
+                                                        </li>
+                                                    ))
+                                                }
+                                            </ul>
+                                        )
+                                    }
+                                </li>
+                            )).toList().toJS()
+                        }
+                    </ul>
+
+                    <strong className="h-small light">All Objects</strong>
+                    <ul className="nav-menu">
+                        {
+                            orderedDefinitions.map((def, name) => (
+                                <li key={name}>
+                                    <a href={`#${name}-definition`}>
+                                        {name}
+                                    </a>
+                                </li>
+                            )).toList().toJS()
+                        }
+                    </ul>
+                </div>
+            </div>
         </div>
     )
 }
 
-export default withRouter(Navigation)
+export default Navigation

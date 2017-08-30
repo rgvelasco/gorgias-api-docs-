@@ -1,0 +1,46 @@
+// -------------------------------------------
+// debuging utilities
+// credit : https://github.com/nedzen
+// -------------------------------------------
+// Ussage: include the mixin like this `+debug('*', orange)`
+// on the element you want to debug. The first paramenter '*'
+// can be any class-name or tag. The second parameter is the desired outline color
+=debug($i: null, $c: red, $c2: blue)
+	@if $i
+		#{$i}
+			outline: 1px dotted $c
+	@else
+		outline: 1px dotted $c2
+
+// responsive debugging set to 'true' in variables file
+@if $debug-mode
+	+media-breakpoint-only(xs)
+		+debug('*', pink)
+	+media-breakpoint-only(sm)
+		+debug('*', fuchsia)
+	+media-breakpoint-only(md)
+		+debug('*', orange)
+	+media-breakpoint-only(lg)
+		+debug('*', blue)
+	+media-breakpoint-up(xl)
+		+debug('*', red)
+
+// Observe element nesting by using this class
+// this is 3 lvl deep. if you need more maybe
+// you should reconsider your html structure.
+// If you want other colors edit them below.
+// `!important` will override any bg colors.
+=highlight($c)
+	background: transparentize(blue, $c)!important
+	> *
+		background: transparentize(fuchsia, $c)!important
+		> *
+			background: transparentize(fuchsia, $c)!important
+			> *
+				background: transparentize(fuchsia, $c)!important
+
+// Ussage: include the mixin like this `+highlight(.5)`
+// on your element or use the class below.
+// The accepted parameter is the alpha value for the hightlight color
+.debug-highlight
+	+highlight(.8)

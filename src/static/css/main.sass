@@ -1,0 +1,336 @@
+
+/* Gorgias API Docs - style
+@import variables
+@import mxn
+@import normalize
+@import util
+
+
+// CONTENTS
+// ------------------------------------------------
+// 0_RESET
+// 1_TYPOGRAPHY
+// 2_TABLES
+// 3_BRAND
+// 4_LAYOUT
+// 5_CODE
+
+
+
+
+// 0_RESET
+// ------------------------------------------------
+ul
+  // +highlight(.5)
+  // +debug('*', pink)
+  padding-left: 0
+
+li
+  list-style-type: none
+  // only for navigation
+  // line-height: 28px
+
+.main
+  ul
+    li
+      margin-bottom: 6px
+      > ul
+        padding-left: $boxpad
+
+// 1_TYPOGRAPHY
+// ------------------------------------------------
+// Headings special exception
+// on errors view you are using a span.code element within a heading
+h1, h2, h3, h4, h5
+  span.code
+    font-size: inherit
+    background-color: transparent!important
+
+// setting margins
+// all margins are set in _normalize.sass
+
+strong.h-small
+  display: block
+  margin-bottom: 10px
+  font-family: $alt-ff
+  font-size: $sm-fs
+  &.light
+    color: $sky
+    text-transform: uppercase
+  &.dark
+    color: transparentize($pale, .5)
+
+
+span.required
+  display: inline-block
+  border-radius: 3px
+  color: $orange
+  font-family: $alt-ff
+  font-size: $sm-fs
+  line-height: 1rem
+  padding: 1px 3px 1px 5px
+  font-weight: 600
+  text-transform: uppercase
+  background-color: transparentize($orange, .76)
+
+
+// 2_TABLES
+// ------------------------------------------------
+.tableCard
+  overflow-x: auto
+
+.table
+  // .table-striped this class is useless. in case you find it rename it to something else to avoid misleading with bs4
+  // +highlight(.6)
+  width: 100%
+  thead
+    // +highlight(.6)
+    th
+      border-top: 1px solid $gray-light
+      border-bottom: 1px solid $gray-light
+      padding-right: 0!important
+      padding-top: $table-cell-padding
+      padding-bottom: $table-cell-padding
+      &:first-child
+        padding-left: 0
+
+  tbody
+    td
+      border-top: 1px dotted $gray-light!important
+      font-size: $sm-fs + 0.05
+      line-height: $base-lh - 0.1
+      padding-right: 0!important
+      padding-top: $table-cell-padding
+      padding-bottom: $table-cell-padding
+      &:nth-child(2)
+        min-width: 120px
+      &:first-child
+        padding-left: 0
+
+
+
+
+
+// 3_BRAND
+// ------------------------------------------------------
+$brand-h: ($boxpad * 3)
+a.brand
+  display: block
+  // +size(auto!important
+  // float: left
+  // height: 30px
+  +media-breakpoint-up(lg)
+    float: none
+    +size($sidebar-w, $brand-h)
+    +position(fixed, 0px, auto, auto, 0px)
+    padding: $boxpad 0 0 $boxpad
+    border-bottom: 2px solid $white
+
+
+img#logo
+  // for awesome svg compression use this tool :
+  // https://jakearchibald.github.io/svgomg/
+  display: block
+  +size(115px, 27px)
+
+
+// 4_LAYOUT
+// ------------------------------------------------------
+
+#root
+  height: 100%
+  > div
+    +media-breakpoint-up(lg)
+      +display-flex
+      .navigation
+        min-width: $sidebar-w
+      .main
+        flex-grow: 1
+        // +debug('*', pink)
+
+.navigation, .main
+  position: relative
+  +media-breakpoint-up(lg)
+    height: 100vh
+
+.navigation-wrap > div, .column
+  padding: $boxpad
+  +media-breakpoint-down(md)
+    padding: $boxpad/2
+
+.navigation-wrap, .main
+  overflow-y: auto
+  overflow-x: hidden
+
+.navigation-wrap
+  .h-small, .nav-menu
+    display: none
+
+.navigation
+  z-index: 2
+  overflow: hidden
+  background-color: $sidebar-bg
+  +media-breakpoint-up(lg)
+    .navigation-wrap
+      +position(absolute, $brand-h, 0, 0, 0)
+    .h-small, .nav-menu
+      display: block
+    .select-menu
+      display: none
+
+  +media-breakpoint-down(md)
+    +position(fixed, 0, 0, auto, 0)
+    border-bottom: 2px solid white
+    .navigation-wrap > div
+      // padding-top: $boxpad/2
+      // padding-bottom: $boxpad/2
+      +display-flex
+      // +debug('*')
+      // width: 100%
+    .brand
+      flex-grow: 1
+    // .select-menu
+    //   .fld.select
+
++media-breakpoint-down(md)
+  body
+    padding-top: $boxpad * 2
+
+.section
+  .column
+    &.right
+      background-color: $col-left-bg
+
+    +media-breakpoint-up(md)
+      width: 50%
+      &.left
+        border-bottom: 1px solid $pale
+      &.right
+        border-bottom: 1px solid transparentize($pale, .90)
+
+.wrap
+  +media-breakpoint-up(md)
+    +display-flex
+
+// 5_CODE
+// ------------------------------------------------------
+.column.right
+  .code
+    position: relative
+    margin-left: - $boxpad/2
+    margin-right: - $boxpad/2
+
+.code
+  &.light
+    background-color: $pale
+    color: $base-color
+
+    // Alternative (light-theme) colors
+    .string-key
+      color: $string-key-color-alt
+    .string-value
+      color: $string-value-color-alt
+    .number-value
+      color: $number-value-color-alt
+    .code-comment
+      color: $code-comment-color-alt
+    .boolean-value
+      color: $boolean-value-color-alt
+    .null-value
+      //
+    .link-object
+      //
+
+  &.inline
+    padding: 2px 5px
+
+  color: $pale
+  background-color: $dark
+  border-radius: 3px
+  font-family: $mono-ff
+  font-size: $sm-fs + 0.05
+  &:not(.inline)
+    line-height: 1.3rem
+    padding: 20px $boxpad/2
+    display: block
+    margin-bottom: $boxpad
+
+  a
+    color: $gray
+    text-decoration: underline
+    &:hover
+      color: $white
+
+  // .json-tree
+  //   .object
+  //     // contains only a '{'
+  //     span
+  //       // setting it inline-block removes spaces
+  //       // display: inline-block
+  //     .content
+  //       padding-left: $boxpad/2
+  //       // is a basically row
+  //       .field
+  //         .string-key
+  //         .string-value
+  //         .number-value
+
+  .content
+    padding-left: $boxpad/2
+
+// Default (dark-theme) colors
+.string-key
+  color: $string-key-color
+.string-value
+  color: $string-value-color
+.number-value
+  color: $number-value-color
+.code-comment
+  color: $code-comment-color
+.boolean-value
+  color: $boolean-value-color
+
+
+
+// 6_NAVIGATION
+// ------------------------------------------------------
+.nav-menu
+  line-height: 28px
+  margin-bottom: $boxpad
+  li
+    &.expandable
+      position: relative
+      &:before
+        content: ''
+        display: block
+        +size(9px)
+        +position(absolute, 7px, 0)
+        // background-color: pink
+        background-image: $ico-drop
+        background-repeat: no-repeat
+        background-position: top right
+      &.active
+        &:before
+          background-image: $ico-drop-active
+          +rotate(180deg)
+  a
+    font-weight: 600
+    text-decoration: none
+    &:hover
+      color: $marine
+      text-decoration: underline
+    &.active
+      &:hover
+        text-decoration: none
+        cursor: default
+      color: $blue
+      // font-weight: 600
+
+  &.nested
+    padding-left: $boxpad/2
+    margin-bottom: floor($boxpad/4)
+    font-size: $sm-fs + 0.05
+    // resolves to 13px
+    line-height: 26px
+    li > a
+      font-weight: normal

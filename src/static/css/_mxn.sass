@@ -1,0 +1,152 @@
+// Enable the bixins you need
+//
+// Used in conjunction with global variables to enable certain theme features.
+@import mixins/breakpoints
+@import mixins/typography
+@import mixins/hover
+
+// User select // none / text / all
+=user-select($select)
+	-webkit-user-select: $select
+	-moz-user-select: $select
+	-ms-user-select: $select
+	user-select: $select
+
+=selection
+	::-moz-selection
+		@content
+	::selection
+		@content
+
+=scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%))
+	::-webkit-scrollbar
+		width:  $size
+		height: $size
+		border-radius: 1px
+	::-webkit-scrollbar-thumb
+		background: $foreground-color
+		border-radius: 1px
+	::-webkit-scrollbar-track
+		background: $background-color
+		border-radius: 1px
+	// For Internet Explorer
+	body
+		scrollbar-face-color: $foreground-color
+		scrollbar-track-color: $background-color
+
+// V3 stretch and position mixin in one      //
+// see ussage cases below --------------------
+// .element-1
+// 	+position(static)
+// .element-2
+// 	+position(stretch)
+// .element-3
+// 	+position(absolute, 20px, 30px, 40px, 50px)
+// .element-5
+// 	+position(fixed, 20px, 30px, 40px, 50px)
+// .element-6
+// 	+position(fixed)
+// ---------------------------------------- */
+
+=position($pos:null, $a:0, $b:0, $c:null, $d:null)
+	@if $pos == absolute
+		position: absolute
+		top: $a
+		right: $b
+		bottom: $c
+		left: $d
+
+	@else if $pos == stretch
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+
+	@else if $pos
+		position: $pos
+		@if $pos == fixed && $a == 0
+			top: $a
+			right: $b
+			bottom: $c
+			left: $d
+
+	@else if $pos
+		position: $pos
+		@if $a == 0
+			// do nothing
+		@else
+			top: $a
+			right: $b
+			bottom: $c
+			left: $d
+
+=mx-center
+	margin-right: auto !important
+	margin-left:  auto !important
+
+=size($width, $height: $width)
+	width: $width
+	height: $height
+
+// truncates nasty text
+// =truncate()
+//  white-space: nowrap
+//  overflow: hidden
+//  text-overflow: ellipsis
+
+=display-flex
+	display: -webkit-box!important
+	display: -webkit-flex!important
+	display: -moz-box!important
+	display: -moz-flex!important
+	display: -ms-flexbox!important
+	display: flex!important
+
+// Mixin image
+=background-image($img)
+	background-image: url(image-path($img))
+	// background-repeat: repeat
+
+// usefull for quickly hiding elements
+=hide($x:null)
+	@if $x=='hidden'
+		visibility: hidden
+	@else if $x
+		display: $x
+	@else
+		display: none
+
+// when you need responsive squares or rectangles.
+// use this mixin. Place content inside a stretched div
+=height-adjust($a: 100%)
+	&:before
+		content: ""
+		display: block
+		padding-top: $a
+
+=placeholder-color($color)
+	&::-webkit-input-placeholder
+		color: $color
+	&:-moz-placeholder
+		color: $color
+	&::-moz-placeholder
+		color: $color
+	&:-ms-input-placeholder
+		color: $color
+	&::placeholder
+		color: $color
+		// Override Firefox's unusual default
+		// opacity; see https://github.com/twbs/bootstrap/pull/11526.
+		opacity: 1
+
+// transforms
+=transform($transforms)
+	-moz-transform: $transforms
+	-o-transform: $transforms
+	-ms-transform: $transforms
+	-webkit-transform: $transforms
+	transform: $transforms
+// rotate
+=rotate($deg)
+	+transform(rotate(#{$deg}))
