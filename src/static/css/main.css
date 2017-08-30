@@ -333,17 +333,16 @@ h1 {
 h2, h3, h4, h5 {
   margin: 20px auto; }
 
-.table {
-  width: 100%; }
-  .table thead th {
-    border-top: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem; }
-  .table tbody td {
-    border-bottom: 1px dashed #e0e0e0;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem; }
+strong.h-small {
+  display: block;
+  margin-bottom: 10px;
+  font-family: "Overpass Mono", monospace;
+  font-size: 0.75rem; }
+  strong.h-small.light {
+    color: #98BAEC;
+    text-transform: uppercase; }
+  strong.h-small.dark {
+    color: rgba(233, 242, 254, 0.5); }
 
 span.required {
   display: inline-block;
@@ -356,6 +355,18 @@ span.required {
   font-weight: 600;
   text-transform: uppercase;
   background-color: rgba(255, 155, 83, 0.24); }
+
+.table {
+  width: 100%; }
+  .table thead th {
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem; }
+  .table tbody td {
+    border-bottom: 1px dashed #e0e0e0;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem; }
 
 a.brand {
   display: block;
@@ -407,6 +418,22 @@ svg#logo {
   right: 0;
   bottom: 0;
   left: 0; }
+
+.row .col {
+  width: 50%; }
+  .row .col.left {
+    border-bottom: 1px solid #E9F2FE; }
+  .row .col.right {
+    background-color: #2F303B;
+    border-bottom: 1px solid rgba(233, 242, 254, 0.1); }
+
+.wrap {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -moz-box !important;
+  display: -moz-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important; }
 
 .col.right .code {
   position: relative;
@@ -461,33 +488,6 @@ svg#logo {
 
 .boolean-value {
   color: #FA2772; }
-
-strong.h-small {
-  display: block;
-  margin-bottom: 10px;
-  font-family: "Overpass Mono", monospace;
-  font-size: 0.75rem; }
-  strong.h-small.light {
-    color: #98BAEC;
-    text-transform: uppercase; }
-  strong.h-small.dark {
-    color: rgba(233, 242, 254, 0.5); }
-
-.row .col {
-  width: 50%; }
-  .row .col.left {
-    border-bottom: 1px solid #E9F2FE; }
-  .row .col.right {
-    background-color: #2F303B;
-    border-bottom: 1px solid rgba(233, 242, 254, 0.1); }
-
-.wrap {
-  display: -webkit-box !important;
-  display: -webkit-flex !important;
-  display: -moz-box !important;
-  display: -moz-flex !important;
-  display: -ms-flexbox !important;
-  display: flex !important; }
 
 .nav-menu {
   line-height: 28px;

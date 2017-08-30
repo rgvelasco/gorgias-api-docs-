@@ -4,10 +4,22 @@
 @import mxn
 @import normalize
 @import util
-// @import json-tree
-// @import navigation
 
-// RESET
+
+// CONTENTS
+// ------------------------------------------------
+// 0_RESET
+// 1_TYPOGRAPHY
+// 2_TABLES
+// 3_BRAND
+// 4_LAYOUT
+// 5_CODE
+
+
+
+
+// 0_RESET
+// ------------------------------------------------
 ul
   // +highlight(.5)
   // +debug('*', pink)
@@ -28,7 +40,7 @@ p, ul
       > ul
         padding-left: $boxpad
 
-// TYPOGRAPHY
+// 1_TYPOGRAPHY
 // ------------------------------------------------
 // Headings special exception
 // on errors view you are using a span.code element within a heading
@@ -45,13 +57,38 @@ h2, h3, h4, h5
   margin: 20px auto
 
 
-.attributes
+strong.h-small
+  display: block
+  margin-bottom: 10px
+  font-family: $alt-ff
+  font-size: $sm-fs
+  &.light
+    color: $sky
+    text-transform: uppercase
+  &.dark
+    color: transparentize($pale, .5)
+
+
+span.required
+  display: inline-block
+  border-radius: 3px
+  color: $orange
+  font-family: $alt-ff
+  font-size: $sm-fs
+  line-height: 1rem
+  padding: 1px 3px 1px 5px
+  font-weight: 600
+  text-transform: uppercase
+  background-color: transparentize($orange, .76)
+
+
+// .attributes
   // not sure why this div.class is needed
-.tableCard
+// .tableCard
   // not sure why this div.class is needed
 
 
-// TABLES
+// 2_TABLES
 // ------------------------------------------------
 .table
   // .table-striped this class is useless. in case you find it rename it to something else to avoid misleading with bs4
@@ -72,21 +109,10 @@ h2, h3, h4, h5
 
 
 
-span.required
-  display: inline-block
-  border-radius: 3px
-  color: $orange
-  font-family: $alt-ff
-  font-size: $sm-fs
-  line-height: 1rem
-  padding: 1px 3px 1px 5px
-  font-weight: 600
-  text-transform: uppercase
-  background-color: transparentize($orange, .76)
 
 
 
-// BRAND
+// 3_BRAND
 // ------------------------------------------------------
 $brand-h: ($boxpad * 3)
 
@@ -103,7 +129,7 @@ svg#logo
   +size(115px, 27px)
 
 
-// LAYOUT
+// 4_LAYOUT
 // ------------------------------------------------------
 #root
   height: 100%
@@ -134,7 +160,19 @@ svg#logo
   +position(absolute, $brand-h, 0, 0, 0)
 
 
-// CODE
+.row
+  .col
+    width: 50%
+    &.left
+      border-bottom: 1px solid $pale
+    &.right
+      background-color: $col-left-bg
+      border-bottom: 1px solid transparentize($pale, .90)
+
+.wrap
+  +display-flex
+
+// 5_CODE
 // ------------------------------------------------------
 .col.right
   .code
@@ -158,6 +196,10 @@ svg#logo
       color: $code-comment-color-alt
     .boolean-value
       color: $boolean-value-color-alt
+    .null-value
+      //
+    .link-object
+      //
 
   &.inline
     padding: 2px 5px
@@ -208,35 +250,9 @@ svg#logo
 .boolean-value
   color: $boolean-value-color
 
-// headings
-strong.h-small
-  display: block
-  margin-bottom: 10px
-  font-family: $alt-ff
-  font-size: $sm-fs
-  &.light
-    color: $sky
-    text-transform: uppercase
-  &.dark
-    color: transparentize($pale, .5)
 
-  // , & .col
-  //   padding: $boxpad
-
-
-//
-.row
-  .col
-    width: 50%
-    &.left
-      border-bottom: 1px solid $pale
-    &.right
-      background-color: $col-left-bg
-      border-bottom: 1px solid transparentize($pale, .90)
-
-.wrap
-  +display-flex
-
+// 6_NAVIGATION
+// ------------------------------------------------------
 .nav-menu
   line-height: 28px
   margin-bottom: $boxpad
@@ -258,172 +274,3 @@ strong.h-small
     font-size: $sm-fs + 0.05
     // resolves to 13px
     line-height: 26px
-
-
-
-//
-
-
-
-// #root is the app container
-// #root
-//   overflow: hidden
-//   > div
-//     // display: flex
-//
-// .navigation
-//   // sidebar
-// .main
-//   // main-content
-//
-//
-// /* Main
-// .main
-//   // +highlight(.5)
-//   float: left
-//   width: 85%
-//   height: 100%
-//   overflow: auto
-//
-// /* Grid
-// .Grid
-//   display: flex
-//   flex-wrap: wrap
-//   list-style: none
-//   margin: 0
-//   padding: 0
-//
-//
-//   &-right
-//     display: flex
-//     width: 50%
-//     background-color: $dark_grey_code
-//
-//
-//   &-left
-//     width: 50%
-//     background-color: white
-//
-//   &-inside
-//     padding: 40px
-//     width: 100%
-//
-//   &-top
-//     align-items: flex-start
-//
-//
-// .left-background
-//   position: absolute
-//   right: 42.5%
-//   z-index: -1
-//   height: 100%
-//   width: 42.5%
-//   background-color: white
-//
-// .right-background
-//   position: absolute
-//   right: 0
-//   z-index: -1
-//   height: 100%
-//   width: 42.5%
-//   background-color: $dark_grey_code
-//
-// /* Columns
-//
-// .columnCenter
-//   float: left
-//
-//   &, .columnCenter:before
-//     width: 45%
-//
-//   &:before
-//     content: ''
-//     position: absolute
-//     top: 0
-//     bottom: 0
-//     z-index: -1
-//     left: 0%
-//     background-color: white
-//
-// .columnRight
-//   float: left
-//   background-color: $dark_grey_code
-//
-//   &, .columnRight:before
-//     width: 55%
-//
-//   &:before
-//     content: ''
-//     position: absolute
-//     top: 0
-//     bottom: 0
-//     z-index: -1
-//     left: 45%
-//     background-color: $dark_grey_code
-//
-// .text-right
-//   color: $light_grey_gorgias
-//
-// .code
-//   font-size: 13px
-//   font-family: $consolas
-//   border-radius: 5px
-//   background: $medium_grey_code
-//   padding: 20px
-//   color: #FFF
-//
-//   &.light
-//     color: #000
-//     background: $light_grey_gorgias
-//
-//   &.inline
-//     display: inline
-//     padding: 2px 4px
-//
-// .request
-//   background: $light_grey_gorgias
-//   color: $grey_text
-//   padding: 15px
-//
-// .tableCard
-//   /*background: $light_blue;
-//    *margin-bottom: 10px
-//    *padding: 5px 10px
-//    *font-size: 12px
-//
-// /* Properties
-//
-// .required
-//   display: inline-block
-//   color: white
-//   background: $blue_gorgias
-//   margin: 0 0 0 5px
-//   padding: 2px 10px
-//   font-size: 10px
-//   text-transform: uppercase
-//   border-radius: 100px
-//
-//
-//
-// // _response.sass
-//
-// pre
-//   padding: 20px 40px
-//   margin: 5px
-//   color: #d0d0d0
-//   background: #272b2d
-//
-// .string
-//   color: #d0d0d0
-//
-// .number
-//   color: #77bcd7
-//
-// .boolean
-//   color: #77bcd7
-//
-// .null
-//   color: #ebde68
-//
-// .key
-//   color: #c1ef65
