@@ -16,7 +16,7 @@ export const Path = ({uri, verbs}) => {
     const parts = uri.split('/')
     const anchor = parts.slice(1, parts.length - 1).join('-')
     return (
-        <div className="row paths" id={anchor}>
+        <div className="section paths" id={anchor}>
             {verbs.map((verb, method) => (
                 <Verb key={method} verb={verb} method={method} uri={uri}/>
             )).toList()}
@@ -32,7 +32,7 @@ export const Path = ({uri, verbs}) => {
  */
 const Verb = ({verb, method, uri}) => (
     <div className="wrap">
-        <div className="col left">
+        <div className="column left">
             {/*  description  */}
             <div>
                 <h1 id={slug(`${method}-${uri}`)}>{verb.get('summary')}</h1>
@@ -40,7 +40,7 @@ const Verb = ({verb, method, uri}) => (
             </div>
             <Parameters parameters={verb.get('parameters')}/>
         </div>
-        <div className="col right">
+        <div className="column right">
             <strong className="h-small dark">HTTP Request</strong>
             <Code>{method.toUpperCase()} https://your-domain.gorgias.io{uri}</Code>
             <Responses responses={verb.get('responses')}/>

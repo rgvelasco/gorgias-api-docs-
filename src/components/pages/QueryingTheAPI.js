@@ -4,10 +4,10 @@ import {JSONTree} from './../JsonTree'
 import {Code} from './../../utils'
 
 export const QueryingTheAPI = () => (
-    <div id="querying-the-api" className="row">
+    <div id="querying-the-api" className="section">
       <div className="wrap">
         {/*  Left Column  */}
-        <div className="col left">
+        <div className="column left">
             {/*  Description  */}
             <h1>Querying the API </h1>
             <h3>Domain URL</h3>
@@ -61,7 +61,7 @@ export const QueryingTheAPI = () => (
         </div>
 
         {/*  Right Column  */}
-        <div className="col right">
+        <div className="column right">
         </div>
       </div>
     </div>

@@ -4,10 +4,10 @@ import {Code} from './../../utils'
 import {JSONTree} from './../JsonTree'
 
 export const Errors = () => (
-    <div id="errors" className="row">
+    <div id="errors" className="section">
       <div className="wrap">
         {/*  Left Column  */}
-        <div className="col left">
+        <div className="column left">
             {/*  Description  */}
             <h1>Errors</h1>
             <h2><Code light inline>400 Bad Request</Code></h2>
@@ -101,7 +101,7 @@ export const Errors = () => (
         </div>
 
         {/*  Right Column  */}
-        <div className="col right">
+        <div className="column right">
 
         </div>
       </div>

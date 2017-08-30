@@ -1,10 +1,10 @@
 import React from 'react'
 
 export const Intro = () => (
-    <div id="intro" className="row">
+    <div id="intro" className="section">
         <div className="wrap">
           {/*  Left Column  */}
-          <div className="col left">
+          <div className="column left">
               {/*  Description  */}
               <h1>Gorgias REST API Reference</h1>
               <p>
@@ -26,7 +26,7 @@ export const Intro = () => (
           </div>
 
           {/*  Right Column  */}
-          <div className="col right">
+          <div className="column right">
 
           </div>
         </div>

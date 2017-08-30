@@ -4,10 +4,10 @@ import {JSONTree} from './../JsonTree'
 import {Code} from './../../utils'
 
 export const Pagination = () => (
-    <div id="pagination" className="row">
+    <div id="pagination" className="section">
       <div className="wrap">
         {/*  Left Column  */}
-        <div className="col left">
+        <div className="column left">
             {/*  Description  */}
             <h1> Pagination </h1>
             <p>Most of the endpoints of our API which returns a large amount of data are paginated.</p>
@@ -63,7 +63,7 @@ export const Pagination = () => (
         </div>
 
         {/*  Right Column  */}
-        <div className="col right">
+        <div className="column right">
 
         </div>
       </div>

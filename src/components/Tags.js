@@ -17,15 +17,15 @@ export const Tags = () => {
                         definitions.map((def, name) => {
                             if (name === tag.get('name')) {
                                 return (
-                                    <div className="row" key={name}>
+                                    <div className="section" key={name}>
                                         <div className="wrap">
-                                            <div className="col left">
+                                            <div className="column left">
                                                 <h1>{tag.get('name')}</h1>
                                                 <p>{def.get('description')}</p>
                                                 <p>{tag.get('description')}</p>
                                                 <Properties name={tag.get('name')} definition={def}/>
                                             </div>
-                                            <div className="col right">
+                                            <div className="column right">
                                             </div>
                                         </div>
                                     </div>

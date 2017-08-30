@@ -11,14 +11,14 @@ export const Definitions = () => {
     return (
         <div>
             {definitions.map((def, name) => (
-                <div key={name} id={`${name}-definition`} className="row">
+                <div key={name} id={`${name}-definition`} className="section">
                     <div className="wrap">
-                        <div className="col left ">
+                        <div className="column left">
                             <h1>{name}</h1>
                             <p>{def.get('description')}</p>
                             <Properties name={name} definition={def}/>
                         </div>
-                        <div className="col right">
+                        <div className="column right">
                             <strong className="h-small dark">Example object:</strong>
                             <Code>
                                 <JSONTree data={examplify(def)}/>

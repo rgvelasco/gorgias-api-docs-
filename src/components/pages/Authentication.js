@@ -2,10 +2,10 @@ import React from 'react'
 import {Code} from './../../utils'
 
 export const Authentication = () => (
-    <div id="authentication" className="row">
+    <div id="authentication" className="section">
       <div className="wrap">
         {/*  Left Column  */}
-        <div className="col left">
+        <div className="column left">
             {/*  Description  */}
             <h1> Authentication </h1>
             <p>
@@ -50,7 +50,7 @@ export const Authentication = () => (
         </div>
 
         {/*  Right Column  */}
-        <div className="col right">
+        <div className="column right">
 
         </div>
       </div>
