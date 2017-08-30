@@ -41,7 +41,7 @@ export const Properties = ({name, definition}) => {
             <h2>{name} object properties:</h2>
             <div className="tableCard">
                 {/*  Table for the Attributes of the object  */}
-                <Table striped>
+                <Table>
                     <thead>
                     <tr>
                         <th>Name</th>

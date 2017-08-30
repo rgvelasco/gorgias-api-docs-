@@ -91,14 +91,23 @@ span.required
     th
       border-top: 1px solid $gray-light
       border-bottom: 1px solid $gray-light
+      padding-right: 0!important
       padding-top: $table-cell-padding
       padding-bottom: $table-cell-padding
+      &:first-child
+        padding-left: 0
+
   tbody
     td
-      border-bottom: 1px dashed $gray-light
+      // border-bottom: 1px dashed $gray-light!important
+      font-size: $sm-fs + 0.05
+      padding-right: 0!important
       padding-top: $table-cell-padding
       padding-bottom: $table-cell-padding
-
+      &:nth-child(2)
+        min-width: 120px
+      &:first-child
+        padding-left: 0
 
 
 

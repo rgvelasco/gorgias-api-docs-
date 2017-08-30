@@ -347,12 +347,20 @@ span.required {
   .table thead th {
     border-top: 1px solid #e0e0e0;
     border-bottom: 1px solid #e0e0e0;
+    padding-right: 0 !important;
     padding-top: 0.75rem;
     padding-bottom: 0.75rem; }
+    .table thead th:first-child {
+      padding-left: 0; }
   .table tbody td {
-    border-bottom: 1px dashed #e0e0e0;
+    font-size: 0.8rem;
+    padding-right: 0 !important;
     padding-top: 0.75rem;
     padding-bottom: 0.75rem; }
+    .table tbody td:nth-child(2) {
+      min-width: 120px; }
+    .table tbody td:first-child {
+      padding-left: 0; }
 
 a.brand {
   display: block; }
