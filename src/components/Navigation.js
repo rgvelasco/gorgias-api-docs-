@@ -1,6 +1,4 @@
 import React from 'react'
-// we don't need bootstrap
-import '../static/css/main.css'
 import slug from 'slug'
 import {fromJS} from 'immutable'
 

@@ -1,9 +1,6 @@
 import React from 'react'
-// we don't need bootstrap
 import '../static/css/main.css'
 import Navigation from './Navigation'
-// import '../static/js/jquery-3.2.1.slim.min.js'
-// import '../static/js/scrollspy.js'
 
 import {Intro} from './pages/Intro'
 import {Authentication} from './pages/Authentication'
@@ -12,6 +9,15 @@ import {Errors} from './pages/Errors'
 import {Pagination} from './pages/Pagination'
 import {Tags} from './Tags'
 import {Definitions} from './Definitions'
+
+// https://www.npmjs.com/package/react-scroll
+// --
+// import 'react-scroll'
+// var Scroll = require('react-scroll');
+// var Events = Scroll.Events;
+// Events.scrollEvent.register('begin', function(to, element) {
+//   console.log("begin", to, element);
+// });
 
 export const App = () => {
     return (

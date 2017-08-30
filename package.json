@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
+    "react-scroll": "1.5.4",
     "bootstrap": "4.0.0-alpha.6",
     "immutable": "^3.8.1",
     "react": "^15.6.1",
