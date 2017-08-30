@@ -55,7 +55,7 @@ strong.h-small
   font-family: $alt-ff
   font-size: $sm-fs
   &.light
-    // color: $sky
+    color: $sky
     text-transform: uppercase
   &.dark
     color: transparentize($pale, .5)
@@ -74,14 +74,11 @@ span.required
   background-color: transparentize($orange, .76)
 
 
-// .attributes
-  // not sure why this div.class is needed
-// .tableCard
-  // not sure why this div.class is needed
-
-
 // 2_TABLES
 // ------------------------------------------------
+.tableCard
+  overflow-x: auto
+
 .table
   // .table-striped this class is useless. in case you find it rename it to something else to avoid misleading with bs4
   // +highlight(.6)
@@ -101,6 +98,7 @@ span.required
     td
       // border-bottom: 1px dashed $gray-light!important
       font-size: $sm-fs + 0.05
+      line-height: $base-lh - 0.1
       padding-right: 0!important
       padding-top: $table-cell-padding
       padding-bottom: $table-cell-padding

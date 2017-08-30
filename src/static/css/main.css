@@ -25,8 +25,13 @@ html {
       html body {
         font-size: 0.99rem;
         line-height: 1.495rem; }
-        html body .code {
+        html body .code, html body .table td {
           font-size: 90% !important; } }
+
+body {
+  font-smooth: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
 
 html {
   box-sizing: border-box;
@@ -326,6 +331,7 @@ strong.h-small {
   font-family: "Overpass Mono", monospace;
   font-size: 0.75rem; }
   strong.h-small.light {
+    color: #89ACE1;
     text-transform: uppercase; }
   strong.h-small.dark {
     color: rgba(233, 242, 254, 0.5); }
@@ -342,6 +348,9 @@ span.required {
   text-transform: uppercase;
   background-color: rgba(255, 155, 83, 0.24); }
 
+.tableCard {
+  overflow-x: auto; }
+
 .table {
   width: 100%; }
   .table thead th {
@@ -354,6 +363,7 @@ span.required {
       padding-left: 0; }
   .table tbody td {
     font-size: 0.8rem;
+    line-height: 1.395rem;
     padding-right: 0 !important;
     padding-top: 0.75rem;
     padding-bottom: 0.75rem; }
@@ -367,7 +377,7 @@ a.brand {
   @media (min-width: 992px) {
     a.brand {
       float: none;
-      width: 240px;
+      width: 220px;
       height: 90px;
       position: fixed;
       top: 0px;
@@ -393,7 +403,7 @@ svg#logo {
       display: -ms-flexbox !important;
       display: flex !important; }
       #root > div .navigation {
-        min-width: 240px; }
+        min-width: 220px; }
       #root > div .main {
         flex-grow: 1; } }
 
