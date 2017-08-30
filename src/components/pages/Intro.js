@@ -1,12 +1,12 @@
 import React from 'react'
 
-export const Index = () => (
-    <div className="row">
+export const Intro = () => (
+    <div id="intro" className="row">
         <div className="wrap">
           {/*  Left Column  */}
           <div className="col left">
               {/*  Description  */}
-              <h1> API Reference </h1>
+              <h1>Gorgias REST API Reference</h1>
               <p>
                   The Gorgias API is organized around REST. Our API has predictable, resource-oriented
                   URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP

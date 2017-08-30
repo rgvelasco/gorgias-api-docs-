@@ -2,7 +2,7 @@ import React from 'react'
 import {Code} from './../../utils'
 
 export const Authentication = () => (
-    <div className="row">
+    <div id="authentication" className="row">
       <div className="wrap">
         {/*  Left Column  */}
         <div className="col left">

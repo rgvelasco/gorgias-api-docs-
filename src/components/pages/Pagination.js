@@ -4,7 +4,7 @@ import {JSONTree} from './../JsonTree'
 import {Code} from './../../utils'
 
 export const Pagination = () => (
-    <div className="row">
+    <div id="pagination" className="row">
       <div className="wrap">
         {/*  Left Column  */}
         <div className="col left">
