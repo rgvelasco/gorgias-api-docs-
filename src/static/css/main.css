@@ -141,7 +141,7 @@ a {
   background-color: transparent;
   -webkit-text-decoration-skip: objects; }
   a:hover {
-    color: #3057FF;
+    color: #468AFC;
     text-decoration: underline; }
 
 a:not([href]):not([tabindex]) {
@@ -331,10 +331,10 @@ strong.h-small {
   font-family: "Overpass Mono", monospace;
   font-size: 0.75rem; }
   strong.h-small.light {
-    color: #89ACE1;
+    color: #2C4267;
     text-transform: uppercase; }
   strong.h-small.dark {
-    color: rgba(233, 242, 254, 0.5); }
+    color: rgba(232, 240, 252, 0.5); }
 
 span.required {
   display: inline-block;
@@ -430,7 +430,7 @@ img#logo {
 .navigation {
   z-index: 2;
   overflow: hidden;
-  background-color: #E9F2FE; }
+  background-color: #E8F0FC; }
   @media (min-width: 992px) {
     .navigation .navigation-wrap {
       position: absolute;
@@ -465,15 +465,15 @@ img#logo {
     padding-top: 60px; } }
 
 .section .column.right {
-  background-color: #2F303B; }
+  background-color: #2C4267; }
 
 @media (min-width: 768px) {
   .section .column {
     width: 50%; }
     .section .column.left {
-      border-bottom: 1px solid #E9F2FE; }
+      border-bottom: 1px solid #E8F0FC; }
     .section .column.right {
-      border-bottom: 1px solid rgba(233, 242, 254, 0.1); } }
+      border-bottom: 1px solid rgba(232, 240, 252, 0.1); } }
 
 @media (min-width: 768px) {
   .wrap {
@@ -490,24 +490,24 @@ img#logo {
   margin-right: -15px; }
 
 .code {
-  color: #E9F2FE;
-  background-color: #25262F;
+  color: #E8F0FC;
+  background-color: #253858;
   border-radius: 3px;
   font-family: "Overpass Mono", monospace;
   font-size: 0.8rem; }
   .code.light {
-    background-color: #E9F2FE;
+    background-color: #E8F0FC;
     color: #141D67; }
     .code.light .string-key {
       color: #141D67; }
     .code.light .string-value {
-      color: #3057FF; }
+      color: #468AFC; }
     .code.light .number-value {
-      color: #FA2772; }
+      color: #F54D63; }
     .code.light .code-comment {
       color: #939393; }
     .code.light .boolean-value {
-      color: #FA2772; }
+      color: #F54D63; }
   .code.inline {
     padding: 2px 5px; }
   .code:not(.inline) {
@@ -524,19 +524,19 @@ img#logo {
     padding-left: 15px; }
 
 .string-key {
-  color: #66B3EE; }
+  color: #E8F0FC; }
 
 .string-value {
   color: #FF9B53; }
 
 .number-value {
-  color: #FA2772; }
+  color: #F54D63; }
 
 .code-comment {
   color: #939393; }
 
 .boolean-value {
-  color: #FA2772; }
+  color: #F54D63; }
 
 .nav-menu {
   line-height: 28px;
@@ -551,11 +551,11 @@ img#logo {
       position: absolute;
       top: 7px;
       right: 0;
-      background-image: url("data:image/svg+xml;charset=utf8, %3Csvg width='9px' height='9px' viewBox='0 2 19 19' version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' transform='translate(-288.000000, -345.000000)' stroke-width='2' stroke='#89ACE1'%3E%3Cpolyline points='306.010408 352.020815 297.515611 360.515611 289.020815 352.020815'%3E%3C/polyline%3E%3C/g%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml;charset=utf8, %3Csvg width='9px' height='9px' viewBox='0 2 19 19' version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' transform='translate(-288.000000, -345.000000)' stroke-width='2' stroke='#2C4267'%3E%3Cpolyline points='306.010408 352.020815 297.515611 360.515611 289.020815 352.020815'%3E%3C/polyline%3E%3C/g%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: top right; }
     .nav-menu li.expandable.active:before {
-      background-image: url("data:image/svg+xml;charset=utf8, %3Csvg width='9px' height='9px' viewBox='0 2 19 19' version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' transform='translate(-288.000000, -345.000000)' stroke-width='2' stroke='#3057FF'%3E%3Cpolyline points='306.010408 352.020815 297.515611 360.515611 289.020815 352.020815'%3E%3C/polyline%3E%3C/g%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml;charset=utf8, %3Csvg width='9px' height='9px' viewBox='0 2 19 19' version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' transform='translate(-288.000000, -345.000000)' stroke-width='2' stroke='#468AFC'%3E%3Cpolyline points='306.010408 352.020815 297.515611 360.515611 289.020815 352.020815'%3E%3C/polyline%3E%3C/g%3E%3C/svg%3E");
       -moz-transform: rotate(180deg);
       -o-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
@@ -568,7 +568,7 @@ img#logo {
       color: #141D67;
       text-decoration: underline; }
     .nav-menu a.active {
-      color: #3057FF; }
+      color: #468AFC; }
       .nav-menu a.active:hover {
         text-decoration: none;
         cursor: default; }
