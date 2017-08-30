@@ -116,7 +116,7 @@ const Navigation = () => {
                     <ul className="nav-menu">
                         {
                             orderedResources.map(tag => (
-                                <li key={tag.get('name')}>
+                                <li className="expandable" key={tag.get('name')}>
                                     <a href={`#${tag.get('name')}`}>
                                         {tag.get('name')}
                                     </a>

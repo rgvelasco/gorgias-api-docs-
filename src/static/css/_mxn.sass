@@ -1,15 +1,9 @@
 // Enable the bixins you need
 //
 // Used in conjunction with global variables to enable certain theme features.
-// @import mixins/buttons
 @import mixins/breakpoints
 @import mixins/typography
-// @import mixins/transitions
 @import mixins/hover
-// @import mixins/transforms
-// @import mixins/img-filters
-// @import mixins/animations
-// @import mixins/family
 
 // User select // none / text / all
 =user-select($select)
@@ -145,3 +139,14 @@
 		// Override Firefox's unusual default
 		// opacity; see https://github.com/twbs/bootstrap/pull/11526.
 		opacity: 1
+
+// transforms
+=transform($transforms)
+	-moz-transform: $transforms
+	-o-transform: $transforms
+	-ms-transform: $transforms
+	-webkit-transform: $transforms
+	transform: $transforms
+// rotate
+=rotate($deg)
+	+transform(rotate(#{$deg}))

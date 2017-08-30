@@ -291,12 +291,30 @@ svg#logo
   color: $boolean-value-color
 
 
+
 // 6_NAVIGATION
 // ------------------------------------------------------
 .nav-menu
   line-height: 28px
   margin-bottom: $boxpad
+  li
+    &.expandable
+      position: relative
+      &:before
+        content: ''
+        display: block
+        +size(9px)
+        +position(absolute, 7px, 0)
+        // background-color: pink
+        background-image: $ico-drop
+        background-repeat: no-repeat
+        background-position: top right
+      &.active
+        &:before
+          background-image: $ico-drop-active
+          +rotate(180deg)
   a
+    font-weight: 600
     text-decoration: none
     &:hover
       color: $marine
@@ -306,7 +324,7 @@ svg#logo
         text-decoration: none
         cursor: default
       color: $blue
-      font-weight: 600
+      // font-weight: 600
 
   &.nested
     padding-left: $boxpad/2
@@ -314,3 +332,5 @@ svg#logo
     font-size: $sm-fs + 0.05
     // resolves to 13px
     line-height: 26px
+    li > a
+      font-weight: normal
