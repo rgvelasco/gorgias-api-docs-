@@ -30,9 +30,6 @@ li
   // only for navigation
   // line-height: 28px
 
-p, ul
-  margin-bottom: $boxpad
-
 .main
   ul
     li
@@ -50,12 +47,7 @@ h1, h2, h3, h4, h5
     background-color: transparent!important
 
 // setting margins
-h1
-  margin: $boxpad auto
-
-h2, h3, h4, h5
-  margin: 20px auto
-
+// all margins are set in _normalize.sass
 
 strong.h-small
   display: block
@@ -63,7 +55,7 @@ strong.h-small
   font-family: $alt-ff
   font-size: $sm-fs
   &.light
-    color: $sky
+    // color: $sky
     text-transform: uppercase
   &.dark
     color: transparentize($pale, .5)
@@ -195,7 +187,7 @@ svg#logo
 
 +media-breakpoint-down(md)
   body
-    padding-top: $boxpad
+    padding-top: $boxpad * 2
 
 .section
   .column

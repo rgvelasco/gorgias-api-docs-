@@ -46,14 +46,17 @@ h4
 
 h1, h2, h3, h4
 	line-height: $lh-scale * 1em
+	font-weight: $headings-fw
 
 html
 	font-size: $root-fs
 	+media-breakpoint-down(sm)
-		font-size: 86%
+		font-size: 90%
 		body
 			font-size: $base-fs * 1.1
 			line-height: $base-lh
+			.code
+				font-size: 90%!important
 
 body
 	// check normalize file for text size, lh etc.
