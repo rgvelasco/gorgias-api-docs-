@@ -362,6 +362,7 @@ span.required {
     .table thead th:first-child {
       padding-left: 0; }
   .table tbody td {
+    border-top: 1px dotted #e0e0e0 !important;
     font-size: 0.8rem;
     line-height: 1.395rem;
     padding-right: 0 !important;
