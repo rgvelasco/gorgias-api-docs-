@@ -26,7 +26,7 @@ export const App = () => {
 
             {/*   MAIN (everything except the Navigation SideColumn)   */}
             {/*  CONTENT (Tag or Definition)  */}
-            <div data-spy="scroll" data-target="#navbar-example3" data-offset="0" className="main scrollspy-example-2">
+            <div>
                 <Intro/>
                 <Authentication />
                 <QueryingTheAPI />

@@ -29,7 +29,7 @@ const Navigation = () => {
     return (
         <div className="navigation">
             <div className="navigation-wrap">
-                <div id="navbar-example3" className="navbar">
+                <div>
                     <a href="/" className="brand">
                         <svg id="logo" viewBox="0 0 115 27" xmlns="http://www.w3.org/2000/svg">
                             <g fill="#141D67">
@@ -45,11 +45,11 @@ const Navigation = () => {
 
                     <strong className="h-small light">General</strong>
                     <ul className="nav-menu">
-                        <li><a className="nav-link" href="#intro">Introduction</a></li>
-                        <li><a className="nav-link" href="#authentication">Authentication</a></li>
-                        <li><a className="nav-link" href="#pagination">Pagination</a></li>
-                        <li><a className="nav-link" href="#querying-the-api">Querying the API</a></li>
-                        <li><a className="nav-link" href="#errors">Errors</a></li>
+                        <li><a className="active" href="#intro">Introduction</a></li>
+                        <li><a href="#authentication">Authentication</a></li>
+                        <li><a href="#pagination">Pagination</a></li>
+                        <li><a href="#querying-the-api">Querying the API</a></li>
+                        <li><a href="#errors">Errors</a></li>
                     </ul>
 
                     <strong className="h-small light">Core resources</strong>
@@ -57,14 +57,14 @@ const Navigation = () => {
                         {
                             orderedResources.map(tag => (
                                 <li key={tag.get('name')}>
-                                    <a className="nav-link" href={`#${tag.get('name')}`}>
+                                    <a href={`#${tag.get('name')}`}>
                                         {tag.get('name')}
                                     </a>
                                     {
                                         window.location.hash.includes(`${tag.get('name')}`) && (
                                             <ul className="nav-menu nested">
                                                 <li>
-                                                    <a className="nav-link" href={`#${tag.get('name')}-properties`}
+                                                    <a href={`#${tag.get('name')}-properties`}
                                                        title={`${tag.get('name')} object properties`}
                                                     >
                                                         {tag.get('name')} object
