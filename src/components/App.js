@@ -3,7 +3,15 @@ import React from 'react'
 import '../static/css/main.css'
 import Navigation from './Navigation'
 
-export const App = ({children}) => {
+import {Intro} from './pages/Intro'
+import {Authentication} from './pages/Authentication'
+import {QueryingTheAPI} from './pages/QueryingTheAPI'
+import {Errors} from './pages/Errors'
+import {Pagination} from './pages/Pagination'
+import {Tags} from './Tags'
+import {Definitions} from './Definitions'
+
+export const App = () => {
     return (
         <div>
             <Navigation/>
@@ -11,7 +19,13 @@ export const App = ({children}) => {
             {/*   MAIN (everything except the Navigation SideColumn)   */}
             {/*  CONTENT (Tag or Definition)  */}
             <div className="main">
-                {children}
+                <Intro/>
+                <Authentication />
+                <QueryingTheAPI />
+                <Errors />
+                <Pagination />
+                <Tags />
+                <Definitions />
             </div>
         </div>
     )

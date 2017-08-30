@@ -4,7 +4,7 @@ import {JSONTree} from './../JsonTree'
 import {Code} from './../../utils'
 
 export const QueryingTheAPI = () => (
-    <div className="row">
+    <div id="querying-the-api" className="row">
       <div className="wrap">
         {/*  Left Column  */}
         <div className="col left">

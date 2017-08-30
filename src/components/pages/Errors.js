@@ -4,7 +4,7 @@ import {Code} from './../../utils'
 import {JSONTree} from './../JsonTree'
 
 export const Errors = () => (
-    <div className="row">
+    <div id="errors" className="row">
       <div className="wrap">
         {/*  Left Column  */}
         <div className="col left">

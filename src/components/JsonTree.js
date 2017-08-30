@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import {Map, List} from 'immutable'
 
 export const JSONTree = ({data}) => {
@@ -129,8 +128,8 @@ const LinkToDefinition = ({schemaRef}) => {
     const url = schemaRef.substring(1)
     const displayName = schemaRef.split('/')[2]
     return (
-        <Link to={url} className="link-object">
+        <a href={url} className="link-object">
             {`${displayName}`}
-        </Link>
+        </a>
     )
 }
