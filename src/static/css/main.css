@@ -1,8 +1,6 @@
 /* Gorgias API Docs - style */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i");
 @import url("https://fonts.googleapis.com/css?family=Overpass+Mono:300,400,600,700");
-/* Color Variables */
-/* Font Variables */
 h1 {
   font-size: 1.86624rem; }
 
@@ -369,71 +367,115 @@ span.required {
     padding-bottom: 0.75rem; }
 
 a.brand {
-  display: block;
-  border-bottom: 2px solid #FFFFFF;
-  padding: 30px 0 0 30px;
-  width: 240px;
-  height: 90px;
-  position: fixed;
-  top: 0px;
-  right: auto;
-  bottom: auto;
-  left: 0px; }
+  display: block; }
+  @media (min-width: 992px) {
+    a.brand {
+      float: none;
+      width: 240px;
+      height: 90px;
+      position: fixed;
+      top: 0px;
+      right: auto;
+      bottom: auto;
+      left: 0px;
+      padding: 30px 0 0 30px;
+      border-bottom: 2px solid #FFFFFF; } }
 
 svg#logo {
+  display: block;
   width: 115px;
   height: 27px; }
 
 #root {
   height: 100%; }
-  #root > div {
+  @media (min-width: 992px) {
+    #root > div {
+      display: -webkit-box !important;
+      display: -webkit-flex !important;
+      display: -moz-box !important;
+      display: -moz-flex !important;
+      display: -ms-flexbox !important;
+      display: flex !important; }
+      #root > div .navigation {
+        min-width: 240px; }
+      #root > div .main {
+        flex-grow: 1; } }
+
+.navigation, .main {
+  position: relative; }
+  @media (min-width: 992px) {
+    .navigation, .main {
+      height: 100vh; } }
+
+.navigation-wrap > div, .col {
+  padding: 30px; }
+  @media (max-width: 991px) {
+    .navigation-wrap > div, .col {
+      padding: 15px; } }
+
+.navigation-wrap, .main {
+  overflow-y: auto;
+  overflow-x: hidden; }
+
+.navigation-wrap .h-small, .navigation-wrap .nav-menu {
+  display: none; }
+
+.navigation {
+  z-index: 2;
+  overflow: hidden;
+  background-color: #E9F2FE; }
+  @media (min-width: 992px) {
+    .navigation .navigation-wrap {
+      position: absolute;
+      top: 90px;
+      right: 0;
+      bottom: 0;
+      left: 0; }
+    .navigation .h-small, .navigation .nav-menu {
+      display: block; }
+    .navigation .select-menu {
+      display: none; } }
+  @media (max-width: 991px) {
+    .navigation {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: auto;
+      left: 0;
+      border-bottom: 2px solid white; }
+      .navigation .navigation-wrap > div {
+        display: -webkit-box !important;
+        display: -webkit-flex !important;
+        display: -moz-box !important;
+        display: -moz-flex !important;
+        display: -ms-flexbox !important;
+        display: flex !important; }
+      .navigation .brand {
+        flex-grow: 1; } }
+
+@media (max-width: 991px) {
+  body {
+    padding-top: 30px; } }
+
+.row .col.right {
+  background-color: #2F303B; }
+
+@media (min-width: 768px) {
+  .row .col {
+    width: 50%; }
+    .row .col.left {
+      border-bottom: 1px solid #E9F2FE; }
+    .row .col.right {
+      border-bottom: 1px solid rgba(233, 242, 254, 0.1); } }
+
+@media (min-width: 768px) {
+  .wrap {
     display: -webkit-box !important;
     display: -webkit-flex !important;
     display: -moz-box !important;
     display: -moz-flex !important;
     display: -ms-flexbox !important;
-    display: flex !important; }
-    #root > div .navigation {
-      min-width: 240px;
-      background-color: #E9F2FE; }
-    #root > div .main {
-      flex-grow: 1; }
-
-.navigation, .main {
-  height: 100vh;
-  position: relative; }
-
-.navigation-wrap > div, .col {
-  padding: 30px; }
-
-.navigation-wrap, .main {
-  overflow-y: auto; }
-
-.navigation {
-  overflow: hidden; }
-
-.navigation-wrap {
-  position: absolute;
-  top: 90px;
-  right: 0;
-  bottom: 0;
-  left: 0; }
-
-.row .col {
-  width: 50%; }
-  .row .col.left {
-    border-bottom: 1px solid #E9F2FE; }
-  .row .col.right {
-    background-color: #2F303B;
-    border-bottom: 1px solid rgba(233, 242, 254, 0.1); }
-
-.wrap {
-  display: -webkit-box !important;
-  display: -webkit-flex !important;
-  display: -moz-box !important;
-  display: -moz-flex !important;
-  display: -ms-flexbox !important;
-  display: flex !important; }
+    display: flex !important; } }
 
 .col.right .code {
   position: relative;

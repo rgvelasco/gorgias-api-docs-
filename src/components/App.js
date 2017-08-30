@@ -26,7 +26,7 @@ export const App = () => {
 
             {/*   MAIN (everything except the Navigation SideColumn)   */}
             {/*  CONTENT (Tag or Definition)  */}
-            <div>
+            <div className="main">
                 <Intro/>
                 <Authentication />
                 <QueryingTheAPI />

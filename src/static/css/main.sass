@@ -115,62 +115,103 @@ span.required
 // 3_BRAND
 // ------------------------------------------------------
 $brand-h: ($boxpad * 3)
-
 a.brand
   display: block
-  border-bottom: 2px solid $white
-  padding: $boxpad 0 0 $boxpad
-  +size($sidebar-w, $brand-h)
-  +position(fixed, 0px, auto, auto, 0px)
+  // +size(auto!important
+  // float: left
+  // height: 30px
+  +media-breakpoint-up(lg)
+    float: none
+    +size($sidebar-w, $brand-h)
+    +position(fixed, 0px, auto, auto, 0px)
+    padding: $boxpad 0 0 $boxpad
+    border-bottom: 2px solid $white
+
 
 svg#logo
   // for awesome svg compression use this tool :
   // https://jakearchibald.github.io/svgomg/
+  display: block
   +size(115px, 27px)
 
 
 // 4_LAYOUT
 // ------------------------------------------------------
+
 #root
   height: 100%
   > div
-    +display-flex
-    .navigation
-      min-width: $sidebar-w
-      background-color: $sidebar-bg
-
-    .main
-      flex-grow: 1
-      // +debug('*', pink)
+    +media-breakpoint-up(lg)
+      +display-flex
+      .navigation
+        min-width: $sidebar-w
+      .main
+        flex-grow: 1
+        // +debug('*', pink)
 
 .navigation, .main
-  height: 100vh
   position: relative
+  +media-breakpoint-up(lg)
+    height: 100vh
 
 .navigation-wrap > div, .col
   padding: $boxpad
+  +media-breakpoint-down(md)
+    padding: $boxpad/2
 
 .navigation-wrap, .main
   overflow-y: auto
-
-.navigation
-  overflow: hidden
+  overflow-x: hidden
 
 .navigation-wrap
-  +position(absolute, $brand-h, 0, 0, 0)
+  .h-small, .nav-menu
+    display: none
 
+.navigation
+  z-index: 2
+  overflow: hidden
+  background-color: $sidebar-bg
+  +media-breakpoint-up(lg)
+    .navigation-wrap
+      +position(absolute, $brand-h, 0, 0, 0)
+    .h-small, .nav-menu
+      display: block
+    .select-menu
+      display: none
+
+  +media-breakpoint-down(md)
+    +position(fixed, 0, 0, auto, 0)
+    border-bottom: 2px solid white
+    .navigation-wrap > div
+      // padding-top: $boxpad/2
+      // padding-bottom: $boxpad/2
+      +display-flex
+      // +debug('*')
+      // width: 100%
+    .brand
+      flex-grow: 1
+    // .select-menu
+    //   .fld.select
+
++media-breakpoint-down(md)
+  body
+    padding-top: $boxpad
 
 .row
   .col
-    width: 50%
-    &.left
-      border-bottom: 1px solid $pale
     &.right
       background-color: $col-left-bg
-      border-bottom: 1px solid transparentize($pale, .90)
+
+    +media-breakpoint-up(md)
+      width: 50%
+      &.left
+        border-bottom: 1px solid $pale
+      &.right
+        border-bottom: 1px solid transparentize($pale, .90)
 
 .wrap
-  +display-flex
+  +media-breakpoint-up(md)
+    +display-flex
 
 // 5_CODE
 // ------------------------------------------------------
