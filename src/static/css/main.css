@@ -378,7 +378,7 @@ a.brand {
   @media (min-width: 992px) {
     a.brand {
       float: none;
-      width: 220px;
+      width: 240px;
       height: 90px;
       position: fixed;
       top: 0px;
@@ -386,7 +386,7 @@ a.brand {
       bottom: auto;
       left: 0px;
       padding: 30px 0 0 30px;
-      border-bottom: 2px solid #FFFFFF; } }
+      border-bottom: 1px solid #e3e7ea; } }
 
 img#logo {
   display: block;
@@ -404,7 +404,7 @@ img#logo {
       display: -ms-flexbox !important;
       display: flex !important; }
       #root > div .navigation {
-        min-width: 220px; }
+        min-width: 240px; }
       #root > div .main {
         flex-grow: 1; } }
 
@@ -471,9 +471,7 @@ img#logo {
   .section .column {
     width: 50%; }
     .section .column.left {
-      border-bottom: 1px solid #E9F2FE; }
-    .section .column.right {
-      border-bottom: 1px solid rgba(233, 242, 254, 0.1); } }
+      border-bottom: 1px solid #E9F2FE; } }
 
 @media (min-width: 768px) {
   .wrap {
@@ -494,9 +492,9 @@ img#logo {
   background-color: #25262F;
   border-radius: 3px;
   font-family: "Overpass Mono", monospace;
-  font-size: 0.8rem; }
+  font-size: 0.9rem; }
   .code.light {
-    background-color: #E9F2FE;
+    background-color: #f3f3f3;
     color: #141D67; }
     .code.light .string-key {
       color: #141D67; }
@@ -541,6 +539,8 @@ img#logo {
 .nav-menu {
   line-height: 28px;
   margin-bottom: 30px; }
+  .nav-menu li.active > a {
+    color: #3057FF; }
   .nav-menu li.expandable {
     position: relative; }
     .nav-menu li.expandable:before {
@@ -567,11 +567,9 @@ img#logo {
     .nav-menu a:hover {
       color: #141D67;
       text-decoration: underline; }
-    .nav-menu a.active {
-      color: #3057FF; }
-      .nav-menu a.active:hover {
-        text-decoration: none;
-        cursor: default; }
+    .nav-menu a.active:hover {
+      text-decoration: none;
+      cursor: default; }
   .nav-menu.nested {
     padding-left: 15px;
     margin-bottom: 7px;
@@ -579,3 +577,5 @@ img#logo {
     line-height: 26px; }
     .nav-menu.nested li > a {
       font-weight: normal; }
+      .nav-menu.nested li > a.active {
+        color: #3057FF; }

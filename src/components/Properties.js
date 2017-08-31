@@ -6,13 +6,13 @@ const Property = ({prop, name, required}) => {
     let displayComp = displayName
 
     if (!prop.get('type') && prop.get('$ref')) {
-        let url = prop.get('$ref').split('/')
-        url.shift()
-        url = `/${url.join('/')}`
-
-        displayComp = <a href={url}><b>{displayName}</b></a>
-    } else if (prop.get('type') && prop.get('format')) {
-        displayComp = `${prop.get('format')} (${prop.get('type')})`
+        displayComp = (
+            <span><a href={`#${displayName}-object`}><strong>{displayName}</strong></a> object</span>
+        )
+    } else if (prop.get('type') === 'array') {
+        displayComp = `${prop.get('type')}`
+    } else if (prop.get('type')) {
+        displayComp = `${prop.get('type')}`
     }
 
     return (

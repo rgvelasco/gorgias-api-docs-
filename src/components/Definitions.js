@@ -2,19 +2,19 @@ import React from 'react'
 import {Properties} from './Properties'
 import {JSONTree} from './JsonTree'
 import {examplify, Code} from './../utils'
+import {orderedDefinitionsSelector} from '../selectors'
 
 
 // Definition
 export const Definitions = () => {
-    const openapi = window.openapi
-    const definitions = openapi.get('definitions')
+    const definitions = orderedDefinitionsSelector()
     return (
         <div>
             {definitions.map((def, name) => (
-                <div key={name} id={`${name}-definition`} className="section">
+                <div key={name} className="section">
                     <div className="wrap">
                         <div className="column left">
-                            <h1>{name}</h1>
+                            <h1 id={`${name}-object`}>{name}</h1>
                             <p>{def.get('description')}</p>
                             <Properties name={name} definition={def}/>
                         </div>

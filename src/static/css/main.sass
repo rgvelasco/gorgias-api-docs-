@@ -47,7 +47,7 @@ h1, h2, h3, h4, h5
     background-color: transparent!important
 
 // setting margins
-// all margins are set in _normalize.sass
+// all margins a#re set in _normalize.sass
 
 strong.h-small
   display: block
@@ -124,7 +124,7 @@ a.brand
     +size($sidebar-w, $brand-h)
     +position(fixed, 0px, auto, auto, 0px)
     padding: $boxpad 0 0 $boxpad
-    border-bottom: 2px solid $white
+    border-bottom: 1px solid #e3e7ea
 
 
 img#logo
@@ -205,8 +205,6 @@ img#logo
       width: 50%
       &.left
         border-bottom: 1px solid $pale
-      &.right
-        border-bottom: 1px solid transparentize($pale, .90)
 
 .wrap
   +media-breakpoint-up(md)
@@ -222,7 +220,7 @@ img#logo
 
 .code
   &.light
-    background-color: $pale
+    background-color: $gray-pale
     color: $base-color
 
     // Alternative (light-theme) colors
@@ -248,7 +246,7 @@ img#logo
   background-color: $dark
   border-radius: 3px
   font-family: $mono-ff
-  font-size: $sm-fs + 0.05
+  font-size: $sm-fs + 0.15
   &:not(.inline)
     line-height: 1.3rem
     padding: 20px $boxpad/2
@@ -298,6 +296,8 @@ img#logo
   line-height: 28px
   margin-bottom: $boxpad
   li
+    &.active > a
+      color: $blue
     &.expandable
       position: relative
       &:before
@@ -323,7 +323,6 @@ img#logo
       &:hover
         text-decoration: none
         cursor: default
-      color: $blue
       // font-weight: 600
 
   &.nested
@@ -334,3 +333,6 @@ img#logo
     line-height: 26px
     li > a
       font-weight: normal
+      &.active
+        color: $blue
+

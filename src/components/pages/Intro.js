@@ -3,32 +3,23 @@ import React from 'react'
 export const Intro = () => (
     <div id="intro" className="section">
         <div className="wrap">
-          {/*  Left Column  */}
-          <div className="column left">
-              {/*  Description  */}
-              <h1>Gorgias REST API Reference</h1>
-              <p>
-                  The Gorgias API is organized around REST. Our API has predictable, resource-oriented
-                  URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP
-                  features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf
-                  HTTP clients. We support cross-origin resource sharing, allowing you to interact
-                  securely with our API from a client-side web application (though you should never expose
-                  your secret API key in any public website&#39;s client-side code). JSON is returned by all
-                  API responses, including errors, although our API libraries convert responses to
-                  appropriate language-specific objects.
-              </p>
-              <p>
-                  To make the API as explorable as possible, accounts have test mode and live mode API
-                  keys. There is no "switch" for changing between modes, just use the appropriate key to
-                  perform a live or test transaction. Requests made with test mode credentials never hit
-                  the banking networks and incur no cost.
-              </p>
-          </div>
+            {/*  Left Column  */}
+            <div className="column left">
+                {/*  Description  */}
+                <h1>API Reference</h1>
+                <p>
+                    <a href="https://gorgias.io/">Gorgias</a> API is structured with <a
+                    href="http://en.wikipedia.org/wiki/Representational_State_Transfer">REST</a> in mind.
+                    REST means that our API is resource-oriented (unique URLs per resource), we use standard
+                    HTTP response codes to indicate API errors and standard HTTP verbs (GET, POST, PUT and DELETE)
+                    to perform operations on those resources.
+                </p>
+            </div>
 
-          {/*  Right Column  */}
-          <div className="column right">
+            {/*  Right Column  */}
+            <div className="column right">
 
-          </div>
+            </div>
         </div>
     </div>
 )

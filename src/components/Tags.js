@@ -1,18 +1,18 @@
 import React from 'react'
 import {Properties} from './Properties'
 import {Path} from './Path'
+import {orderedDefinitionsSelector, orderedTagsSelector, pathsSelector} from '../selectors'
 
 // A Tag groups a list of Paths
 export const Tags = () => {
-    const openapi = window.openapi
-    const tags = openapi.get('tags')
-    const definitions = openapi.get('definitions')
-    const paths = openapi.get('paths')
+    const tags = orderedTagsSelector()
+    const definitions = orderedDefinitionsSelector()
+    const paths = pathsSelector()
 
     return (
         <div>
             {tags.map((tag) => (
-                <div key={tag.get('name')} id={tag.get('name')}>
+                <div key={tag.get('name')}>
                     {
                         definitions.map((def, name) => {
                             if (name === tag.get('name')) {
@@ -20,7 +20,7 @@ export const Tags = () => {
                                     <div className="section" key={name}>
                                         <div className="wrap">
                                             <div className="column left">
-                                                <h1>{tag.get('name')}</h1>
+                                                <h1 id={tag.get('name')}>{tag.get('name')}</h1>
                                                 <p>{def.get('description')}</p>
                                                 <p>{tag.get('description')}</p>
                                                 <Properties name={tag.get('name')} definition={def}/>

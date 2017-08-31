@@ -1,10 +1,10 @@
 import React from 'react'
-import {Map, List} from 'immutable'
+import {Map, List, fromJS} from 'immutable'
 
 export const JSONTree = ({data}) => {
     return (
         <div className="json-tree">
-            {switchComponent(data, true, true)}
+            {switchComponent(fromJS(data), true, true)}
         </div>
     )
 }
@@ -125,10 +125,9 @@ const ArrayComponent = ({data, root = false, last = false}) => {
 }
 
 const LinkToDefinition = ({schemaRef}) => {
-    const url = schemaRef.substring(1)
     const displayName = schemaRef.split('/')[2]
     return (
-        <a href={url} className="link-object">
+        <a href={`#${displayName}-object`} className="link-object">
             {`${displayName}`}
         </a>
     )

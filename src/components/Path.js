@@ -1,5 +1,4 @@
 import React from 'react'
-import {fromJS} from 'immutable'
 import {JSONTree} from './JsonTree'
 import {Table} from 'reactstrap'
 
@@ -43,6 +42,8 @@ const Verb = ({verb, method, uri}) => (
         <div className="column right">
             <strong className="h-small dark">HTTP Request</strong>
             <Code>{method.toUpperCase()} https://your-domain.gorgias.io{uri}</Code>
+            <strong className="h-small dark">Example Request</strong>
+            <Code>curl -X {method.toUpperCase()} https://your-domain.gorgias.io{uri}</Code>
             <Responses responses={verb.get('responses')}/>
         </div>
     </div>
@@ -58,7 +59,7 @@ export const Responses = ({responses}) => (
             responses.entrySeq().map((entry, idx) => {
                 if (idx === 0) { // tmp fix to have only the first ex response
                     return (
-                        <Response
+                        <ExampleResponse
                             key={idx}
                             status={entry[0]}
                             responseArg={entry[1]}
@@ -72,11 +73,11 @@ export const Responses = ({responses}) => (
 )
 
 /**
- * A single Response. `Examplify` the definition of the output of the Verb/Endpoint, and display it in a JSONTree.
+ * A single ExampleResponse. `Examplify` the definition of the output of the Verb/Endpoint, and display it in a JSONTree.
  * @param status the HTTP status code of this response (200, 201, 400, 404...)
  * @param responseArg the data
  */
-export const Response = ({status, responseArg}) => {
+export const ExampleResponse = ({status, responseArg}) => {
     let response = responseArg
 
     if (typeof(response) !== 'string' && response.get('schema')) {
@@ -97,7 +98,7 @@ export const Response = ({status, responseArg}) => {
             response = [response]
         }
 
-        response = <JSONTree data={fromJS(response)}/>
+        response = <JSONTree data={response}/>
     } else if (typeof(response) !== 'string' && response.get('description')) {
         response = response.get('description')
     }
