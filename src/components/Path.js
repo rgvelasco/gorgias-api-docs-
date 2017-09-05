@@ -1,6 +1,7 @@
 import React from 'react'
 import {JSONTree} from './JsonTree'
 import {Table} from 'reactstrap'
+import ReactMarkdown from 'react-markdown'
 
 import {Code, examplify, getDefinitionProperties} from './../utils'
 import slug from 'slug'
@@ -29,25 +30,27 @@ export const Path = ({uri, verbs}) => {
  * @param method the name of the verb itself
  * @param uri the URI of the current endpoint
  */
-const Verb = ({verb, method, uri}) => (
-    <div className="wrap">
-        <div className="column left">
-            {/*  description  */}
-            <div>
-                <h1 id={slug(`${method}-${uri}`)}>{verb.get('summary')}</h1>
-                <p>{verb.get('description')}</p>
+const Verb = ({verb, method, uri}) => {
+    const tagName = verb.getIn(['tags', 0])
+    return (
+        <div className="wrap">
+            <div className="column left">
+                <div>
+                    <h1 id={`${tagName}-${slug(verb.get('summary').toLowerCase())}`}>{verb.get('summary')}</h1>
+                    <ReactMarkdown source={verb.get('description')}/>
+                </div>
+                <Parameters parameters={verb.get('parameters')}/>
             </div>
-            <Parameters parameters={verb.get('parameters')}/>
+            <div className="column right">
+                <strong className="h-small dark">HTTP Request</strong>
+                <Code>{method.toUpperCase()} https://your-domain.gorgias.io{uri}</Code>
+                <strong className="h-small dark">Example Request</strong>
+                <Code>curl -X {method.toUpperCase()} https://your-domain.gorgias.io{uri}</Code>
+                <Responses responses={verb.get('responses')}/>
+            </div>
         </div>
-        <div className="column right">
-            <strong className="h-small dark">HTTP Request</strong>
-            <Code>{method.toUpperCase()} https://your-domain.gorgias.io{uri}</Code>
-            <strong className="h-small dark">Example Request</strong>
-            <Code>curl -X {method.toUpperCase()} https://your-domain.gorgias.io{uri}</Code>
-            <Responses responses={verb.get('responses')}/>
-        </div>
-    </div>
-)
+    )
+}
 
 /**
  * A loop to generate all required responses (displayed in the right part of the doc).

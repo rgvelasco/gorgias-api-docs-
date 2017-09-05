@@ -336,8 +336,8 @@ strong.h-small {
   strong.h-small.dark {
     color: rgba(233, 242, 254, 0.5); }
 
-span.required {
-  display: inline-block;
+.required {
+  display: block;
   border-radius: 3px;
   color: #FF9B53;
   font-family: "Overpass Mono", monospace;
@@ -345,6 +345,7 @@ span.required {
   line-height: 1rem;
   padding: 1px 3px 1px 5px;
   font-weight: 600;
+  width: fit-content;
   text-transform: uppercase;
   background-color: rgba(255, 155, 83, 0.24); }
 

@@ -1,7 +1,8 @@
 import React from 'react'
 import {Table} from 'reactstrap'
+import ReactMarkdown from 'react-markdown'
 
-const Property = ({prop, name, required}) => {
+const Property = ({definitionName, prop, name, required}) => {
     const displayName = prop.get('type') || prop.get('$ref').split('/')[2]
     let displayComp = displayName
 
@@ -16,10 +17,19 @@ const Property = ({prop, name, required}) => {
     }
 
     return (
-        <tr>
-            <td>{name} {required && required.includes(name) ? <span className="required">req.</span> : ''}</td>
-            <td>{displayComp}</td>
-            <td>{prop.get('description')}</td>
+        <tr className="object-property" id={`${definitionName}-object-${name}`}>
+            <td className="name">
+                {name}
+
+            </td>
+            <td className="type">
+                {displayComp}
+                {required && required.includes(name) ? (
+                    <span className="required" title="This field is required">required</span>) : ''}
+            </td>
+            <td className="desc">
+                <ReactMarkdown source={prop.get('description')}/>
+            </td>
         </tr>
     )
 }
@@ -28,6 +38,7 @@ export const Properties = ({name, definition}) => {
     if (!definition) {
         return null
     }
+    const definitionName = name
     const requiredProps = definition.get('required') || []
     const properties = definition
         .get('properties')
@@ -37,7 +48,7 @@ export const Properties = ({name, definition}) => {
         .sortBy((p, name) => name !== 'id')
 
     return (
-        <div className="attributes" id={`${name}-properties`}>
+        <div className="attributes" id={`${name}-object-properties`}>
             <h2>{name} object properties:</h2>
             <div className="tableCard">
                 {/*  Table for the Attributes of the object  */}
@@ -52,7 +63,13 @@ export const Properties = ({name, definition}) => {
                     <tbody>
                     {
                         properties.map((prop, name) => (
-                            <Property key={name} prop={prop} name={name} required={requiredProps}/>
+                            <Property
+                                key={name}
+                                prop={prop}
+                                definitionName={definitionName}
+                                name={name}
+                                required={requiredProps}
+                            />
                         )).toList()
                     }
                     </tbody>

@@ -1,5 +1,6 @@
 import {createSelector} from 'reselect'
 import {fromJS} from 'immutable'
+import slug from 'slug'
 
 export const OpenAPISelector = () => fromJS(window.openapi)
 
@@ -39,23 +40,47 @@ export const orderedResourcesSelector = createSelector(
                         subResources.push({
                             name: verb.get('summary'),
                             title: verb.get('description'),
-                            method,
-                            path,
+                            path: `${tag.get('name')}-${slug(verb.get('summary').toLowerCase())}`,
                         })
                     }
                 })
             }
         })
-        return tag.set('subResources', fromJS(subResources))
+        return tag.set('items', fromJS(subResources))
     })
 )
 
-export const scrollSpyResourcesSelector = createSelector(
-    orderedResourcesSelector,
-    (resources) => resources.map((r) => r.get('name'))
-)
-
-export const scrollSpyDefinitionsSelector = createSelector(
-    orderedDefinitionsSelector,
-    (definitions) => definitions.keySeq().map((name) => `${name}-object`)
+export const navigationSelector = createSelector(
+    orderedResourcesSelector, orderedDefinitionsSelector,
+    (resources, definitions) => fromJS({
+        general: {
+            name: 'General',
+            items: [
+                {path: 'intro', name: 'Introduction'},
+                {path: 'authentication', name: 'Authentication'},
+                {path: 'querying-the-api', name: 'Querying the API'},
+                {path: 'errors', name: 'Errors'},
+                {path: 'pagination', name: 'Pagination'},
+            ]
+        },
+        resources: {
+            name: 'Core resources',
+            items: []
+        },
+        definitions: {
+            name: 'All objects',
+            items: []
+        }
+    }).setIn(['resources', 'items'], resources.map((r) => fromJS({
+        path: r.get('name'),
+        name: r.get('name'),
+        items: r.get('items').unshift(fromJS({
+            name: `The ${r.get('name')} object`,
+            title: `${r.get('name')} object definition`,
+            path: `${r.get('name')}-object-properties`,
+        }))
+    }))).setIn(['definitions', 'items'], definitions.keySeq().map((name) => fromJS({
+        path: `${name}-object`,
+        name
+    })))
 )

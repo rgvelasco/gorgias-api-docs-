@@ -1,7 +1,9 @@
 import React from 'react'
 import {Properties} from './Properties'
 import {Path} from './Path'
+import ReactMarkdown from 'react-markdown'
 import {orderedDefinitionsSelector, orderedTagsSelector, pathsSelector} from '../selectors'
+
 
 // A Tag groups a list of Paths
 export const Tags = () => {
@@ -21,8 +23,8 @@ export const Tags = () => {
                                         <div className="wrap">
                                             <div className="column left">
                                                 <h1 id={tag.get('name')}>{tag.get('name')}</h1>
-                                                <p>{def.get('description')}</p>
-                                                <p>{tag.get('description')}</p>
+                                                <ReactMarkdown source={def.get('description')}/>
+                                                <ReactMarkdown source={tag.get('description')}/>
                                                 <Properties name={tag.get('name')} definition={def}/>
                                             </div>
                                             <div className="column right">

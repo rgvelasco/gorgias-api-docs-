@@ -3,6 +3,7 @@ import {Properties} from './Properties'
 import {JSONTree} from './JsonTree'
 import {examplify, Code} from './../utils'
 import {orderedDefinitionsSelector} from '../selectors'
+import ReactMarkdown from 'react-markdown'
 
 
 // Definition
@@ -15,7 +16,7 @@ export const Definitions = () => {
                     <div className="wrap">
                         <div className="column left">
                             <h1 id={`${name}-object`}>{name}</h1>
-                            <p>{def.get('description')}</p>
+                            <ReactMarkdown source={def.get('description')}/>
                             <Properties name={name} definition={def}/>
                         </div>
                         <div className="column right">

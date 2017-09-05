@@ -14,6 +14,10 @@ export const Intro = () => (
                     HTTP response codes to indicate API errors and standard HTTP verbs (GET, POST, PUT and DELETE)
                     to perform operations on those resources.
                 </p>
+                <p>
+                    On this page you'll find the complete REST API reference, examples, definitions of objects and
+                    tutorials. FYI: We're using the same REST API as described here to power our own helpdesk interface.
+                </p>
             </div>
 
             {/*  Right Column  */}
