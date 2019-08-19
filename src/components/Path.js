@@ -186,6 +186,10 @@ export const Parameter = ({paramRef}) => {
         param = paramRef
     }
 
+    if (!param) {
+        return null
+    }
+
     let displayComp = param.get('type')
 
     /* NOT USED FOR NOW
