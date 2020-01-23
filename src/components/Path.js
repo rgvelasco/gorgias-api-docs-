@@ -43,9 +43,9 @@ const Verb = ({verb, method, uri}) => {
             </div>
             <div className="column right">
                 <strong className="h-small dark">HTTP Request</strong>
-                <Code>{method.toUpperCase()} https://your-domain.gorgias.io{uri}</Code>
+                <Code>{method.toUpperCase()} https://your-domain.gorgias.com{uri}</Code>
                 <strong className="h-small dark">Example Request</strong>
-                <Code>curl -X {method.toUpperCase()} https://your-domain.gorgias.io{uri}</Code>
+                <Code>curl -X {method.toUpperCase()} https://your-domain.gorgias.com{uri}</Code>
                 <Responses responses={verb.get('responses')}/>
             </div>
         </div>

@@ -1,7 +1,7 @@
 # Gorgias API Docs
 
 Contains source of website for documentation of Gorgias Helpdesk REST API. 
-It uses the Gorgias OpenAPI spec: https://gorgias.gorgias.io/doc/openapi.json to generate the documentation.
+It uses the Gorgias OpenAPI spec: https://gorgias.gorgias.com/doc/openapi.json to generate the documentation.
 
 
 ## Development 

@@ -3,7 +3,7 @@ import {fromJS, List, OrderedMap} from 'immutable'
 
 
 const EXAMPLE_DATE = '2016-10-07T07:38:36'
-const EXAMPLE_URL = 'https://gorgias.io/'
+const EXAMPLE_URL = 'https://www.gorgias.com/'
 
 const EXAMPLE_STRING = 'string'
 const EXAMPLE_BOOLEAN = false

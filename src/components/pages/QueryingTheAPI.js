@@ -12,7 +12,7 @@ export const QueryingTheAPI = () => (
                 <h3>Domain URL</h3>
                 <p>
                     Before starting make sure that all your requests should go to your gorgias domain URL. For example:
-                    <Code inline light>https://my-company.gorgias.io/api/tickets/</Code> Make sure you replace <Code
+                    <Code inline light>https://my-company.gorgias.com/api/tickets/</Code> Make sure you replace <Code
                     light inline>my-company</Code> with your own company domain.
                 </p>
 

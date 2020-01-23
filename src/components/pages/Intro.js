@@ -1,5 +1,5 @@
 import React from 'react'
-import {Code} from "../../utils";
+import {Code} from '../../utils'
 
 export const Intro = () => (
     <div id="intro" className="section">
@@ -9,7 +9,7 @@ export const Intro = () => (
                 {/*  Description  */}
                 <h1>API Reference</h1>
                 <p>
-                    <a href="https://gorgias.io/">Gorgias</a> API is structured with <a
+                    <a href="https://www.gorgias.com/">Gorgias</a> API is structured with <a
                     href="http://en.wikipedia.org/wiki/Representational_State_Transfer">REST</a> in mind.
                     REST means that our API is resource-oriented (unique URLs per resource), we use standard
                     HTTP response codes to indicate API errors and standard HTTP verbs (GET, POST, PUT and DELETE)
